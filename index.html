@@ -319,6 +319,7 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
             background: #40E0D0;
             border-color: #40E0D0;
+            color: #1e3a8a;
         }
 
         .hero-cta-btn.secondary {
@@ -328,9 +329,21 @@
         }
 
         .hero-cta-btn.secondary:hover {
-            background: #1e3a8a;
-            color: white;
+            background: white;
+            color: #1e3a8a;
             border-color: #1e3a8a;
+        }
+
+        .hero-cta-btn.white {
+            background: white;
+            color: #1e3a8a;
+            border: 2px solid white;
+        }
+
+        .hero-cta-btn.white:hover {
+            background: #40E0D0;
+            color: #1e3a8a;
+            border-color: #40E0D0;
         }
 
         /* Asymmetrical Content Sections */
@@ -719,17 +732,44 @@
         .btn {
             background: #1e3a8a;
             color: white;
-            border: none;
+            border: 2px solid #1e3a8a;
             padding: 12px 25px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
             transform: translateY(-2px);
+            background: #40E0D0;
+            color: #1e3a8a;
+            border-color: #40E0D0;
+        }
+
+        .btn.teal {
+            background: #40E0D0;
+            color: #1e3a8a;
+            border: 2px solid #40E0D0;
+        }
+
+        .btn.teal:hover {
+            background: white;
+            color: #1e3a8a;
+            border-color: #1e3a8a;
+        }
+
+        .btn.white {
+            background: white;
+            color: #1e3a8a;
+            border: 2px solid white;
+        }
+
+        .btn.white:hover {
+            background: #40E0D0;
+            color: #1e3a8a;
+            border-color: #40E0D0;
         }
 
         .impact-metrics {
@@ -851,25 +891,58 @@
         }
 
         .cta-btn {
-            background: white;
-            color: #1e3a8a;
-            border: none;
+            background: #1e3a8a;
+            color: white;
+            border: 2px solid #1e3a8a;
             padding: 15px 30px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .cta-btn:hover {
             transform: translateY(-2px);
+            background: #40E0D0;
+            color: #1e3a8a;
+            border-color: #40E0D0;
+        }
+
+        .cta-btn.teal {
+            background: #40E0D0;
+            color: #1e3a8a;
+            border: 2px solid #40E0D0;
+        }
+
+        .cta-btn.teal:hover {
+            background: white;
+            color: #1e3a8a;
+            border-color: #1e3a8a;
+        }
+
+        .cta-btn.white {
+            background: white;
+            color: #1e3a8a;
+            border: 2px solid white;
+        }
+
+        .cta-btn.white:hover {
+            background: #40E0D0;
+            color: #1e3a8a;
+            border-color: #40E0D0;
         }
 
         .cta-btn.secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: #1e3a8a;
+            border-color: white;
         }
 
         .document-section {
@@ -1103,9 +1176,9 @@
                     <h2 style="color: #1e3a8a; font-size: 2.2rem; margin-bottom: 20px; font-family: 'DM Serif Display', serif; font-weight: 400;">Get Involved Today</h2>
                                             <p style="color: #555; font-size: 1.2rem; margin-bottom: 30px; font-family: 'Manrope', sans-serif;">Join us in making a difference in Black maternal health. Whether you're seeking services, want to volunteer, or wish to support our mission of serving Black women and families, we'd love to hear from you.</p>
                     <div class="hero-cta-buttons">
-                        <button class="hero-cta-btn secondary" onclick="showTab('clients')">Seek Services</button>
-                        <button class="hero-cta-btn secondary" onclick="showTab('volunteers')">Volunteer</button>
-                        <button class="hero-cta-btn secondary" onclick="showTab('donations')">Donate</button>
+                        <button class="hero-cta-btn teal" onclick="showTab('clients')">Seek Services</button>
+                        <button class="hero-cta-btn white" onclick="showTab('volunteers')">Volunteer</button>
+                        <button class="hero-cta-btn" onclick="showTab('donations')">Donate</button>
                     </div>
                 </div>
             </div>
@@ -1260,9 +1333,9 @@
                 <h2 class="cta-title">Get Involved</h2>
                 <p class="cta-text">Join us in making a difference in Black maternal health. Whether you're seeking services, want to volunteer, or wish to support our mission of serving Black women and families, we'd love to hear from you.</p>
                 <div class="cta-buttons">
-                    <button class="cta-btn" onclick="showTab('clients')">Seek Services</button>
-                    <button class="cta-btn secondary" onclick="showTab('volunteers')">Volunteer</button>
-                    <button class="cta-btn secondary" onclick="showTab('donations')">Donate</button>
+                    <button class="cta-btn teal" onclick="showTab('clients')">Seek Services</button>
+                    <button class="cta-btn white" onclick="showTab('volunteers')">Volunteer</button>
+                    <button class="cta-btn" onclick="showTab('donations')">Donate</button>
                 </div>
             </div>
         </div>
