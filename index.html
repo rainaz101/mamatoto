@@ -1523,7 +1523,7 @@
                             <td>2024-01-10</td>
                             <td>8/10</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn">View Details</button></td>
+                            <td><button class="btn" onclick="updateClientStatus(0)">Update Status</button></td>
                         </tr>
                         <tr>
                             <td>Maria Rodriguez</td>
@@ -1531,7 +1531,7 @@
                             <td>2024-01-05</td>
                             <td>7/10</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn">View Details</button></td>
+                            <td><button class="btn" onclick="updateClientStatus(1)">Update Status</button></td>
                         </tr>
                         <tr>
                             <td>Jennifer Smith</td>
@@ -1539,7 +1539,7 @@
                             <td>2023-12-15</td>
                             <td>9/10</td>
                             <td><span class="status-badge status-completed">Completed</span></td>
-                            <td><button class="btn">View Details</button></td>
+                            <td><button class="btn" onclick="updateClientStatus(2)">Update Status</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1594,7 +1594,7 @@
                             <td>emily@mamatoto.org</td>
                             <td>45.5 hours</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn">Assign Client</button></td>
+                            <td><button class="btn" onclick="updateVolunteerStatus(0)">Update Status</button></td>
                         </tr>
                         <tr>
                             <td>Nurse Sarah Williams</td>
@@ -1602,7 +1602,7 @@
                             <td>sarah@mamatoto.org</td>
                             <td>32.0 hours</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn">Assign Client</button></td>
+                            <td><button class="btn" onclick="updateVolunteerStatus(1)">Update Status</button></td>
                         </tr>
                         <tr>
                             <td>Maria Garcia</td>
@@ -1610,7 +1610,7 @@
                             <td>maria@mamatoto.org</td>
                             <td>28.5 hours</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn">Assign Task</button></td>
+                            <td><button class="btn" onclick="updateVolunteerStatus(2)">Update Status</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -2714,7 +2714,8 @@
                 { key: 'dueDate', type: 'text' },
                 { key: 'enrollmentDate', type: 'text' },
                 { key: 'mentalHealthScore', type: 'text' },
-                { key: 'status', type: 'status' }
+                { key: 'status', type: 'status' },
+                { key: 'action', type: 'action', text: 'Update Status' }
             ]);
             
             updateTableDisplay('volunteerTableBody', dashboardData.volunteers, [
@@ -2722,7 +2723,8 @@
                 { key: 'role', type: 'text' },
                 { key: 'email', type: 'text' },
                 { key: 'hoursContributed', type: 'text' },
-                { key: 'status', type: 'status' }
+                { key: 'status', type: 'status' },
+                { key: 'action', type: 'action', text: 'Update Status' }
             ]);
             
             updateTableDisplay('donationTableBody', dashboardData.donations, [
@@ -2795,7 +2797,15 @@
                         cell.innerHTML = `<span class="status-badge status-${item[col.key].toLowerCase().replace(' ', '_')}">${item[col.key]}</span>`;
                     } else if (col.type === 'action') {
                         if (col.text === 'Update Status') {
-                            cell.innerHTML = `<button class="btn" onclick="updateTaskStatus(${index})">${col.text}</button>`;
+                            if (tableId === 'clientTableBody') {
+                                cell.innerHTML = `<button class="btn" onclick="updateClientStatus(${index})">${col.text}</button>`;
+                            } else if (tableId === 'volunteerTableBody') {
+                                cell.innerHTML = `<button class="btn" onclick="updateVolunteerStatus(${index})">${col.text}</button>`;
+                            } else if (tableId === 'taskTableBody') {
+                                cell.innerHTML = `<button class="btn" onclick="updateTaskStatus(${index})">${col.text}</button>`;
+                            } else {
+                                cell.innerHTML = `<button class="btn">${col.text}</button>`;
+                            }
                         } else {
                             cell.innerHTML = `<button class="btn">${col.text}</button>`;
                         }
@@ -2834,6 +2844,56 @@
             
             // Show confirmation message
             alert(`Task "${task.title}" status updated from ${currentStatus} to ${newStatus}`);
+        }
+
+        // Function to update client status
+        function updateClientStatus(clientIndex) {
+            const client = dashboardData.clients[clientIndex];
+            const currentStatus = client.status;
+            
+            // Toggle between Active and Completed
+            const newStatus = currentStatus === 'Active' ? 'Completed' : 'Active';
+            
+            // Update the client status
+            client.status = newStatus;
+            
+            // Update the table display
+            updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'name', type: 'text' },
+                { key: 'dueDate', type: 'text' },
+                { key: 'enrollmentDate', type: 'text' },
+                { key: 'mentalHealthScore', type: 'text' },
+                { key: 'status', type: 'status' },
+                { key: 'action', type: 'action', text: 'Update Status' }
+            ]);
+            
+            // Show confirmation message
+            alert(`Client "${client.name}" status updated from ${currentStatus} to ${newStatus}`);
+        }
+
+        // Function to update volunteer status
+        function updateVolunteerStatus(volunteerIndex) {
+            const volunteer = dashboardData.volunteers[volunteerIndex];
+            const currentStatus = volunteer.status;
+            
+            // Toggle between Active and Inactive
+            const newStatus = currentStatus === 'Active' ? 'Inactive' : 'Active';
+            
+            // Update the volunteer status
+            volunteer.status = newStatus;
+            
+            // Update the table display
+            updateTableDisplay('volunteerTableBody', dashboardData.volunteers, [
+                { key: 'name', type: 'text' },
+                { key: 'role', type: 'text' },
+                { key: 'email', type: 'text' },
+                { key: 'hoursContributed', type: 'text' },
+                { key: 'status', type: 'status' },
+                { key: 'action', type: 'action', text: 'Update Status' }
+            ]);
+            
+            // Show confirmation message
+            alert(`Volunteer "${volunteer.name}" status updated from ${currentStatus} to ${newStatus}`);
         }
 
         // Function to update dashboard metrics
