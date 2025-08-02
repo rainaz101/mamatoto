@@ -34,24 +34,24 @@
         /* New Hero Section with Card Format */
         .hero-section-asymmetrical {
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 90vh;
-            padding: 40px 20px;
+            min-height: 30vh;
+            padding: 15px 20px;
         }
 
         .hero-card {
             background: #fff;
-            border-radius: 30px;
-            border: 4px solid #1A237E;
+            border-radius: 20px;
+            border: 3px solid #1A237E;
             overflow: hidden;
-            max-width: 1400px;
+            max-width: 100%;
             width: 100%;
             display: grid;
             grid-template-columns: 1.2fr 1fr;
-            min-height: 700px;
+            min-height: 280px;
         }
 
         .hero-image-side {
@@ -76,7 +76,7 @@
         }
 
         .hero-text-side {
-            padding: 40px 40px;
+            padding: 20px 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -95,24 +95,74 @@
         }
 
         .hero-logo {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
         }
 
         .hero-logo img {
-            width: 180px;
-            height: 180px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
         }
 
         .hero-title-asymmetrical {
             font-family: 'DM Serif Display', serif;
-            font-size: 2.5rem;
+
+        /* Data Dictionary Interactive Terms */
+        .dict-term {
+            color: #1e3a8a;
+            text-decoration: underline;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .dict-term:hover {
+            color: #7c3aed;
+            background-color: rgba(124, 58, 237, 0.1);
+            border-radius: 3px;
+            padding: 2px 4px;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: #1e3a8a;
+            color: #ffffff !important;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            text-shadow: none;
+        }
+
+        .tooltip.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #1e3a8a;
+        }
+            font-size: 1.8rem;
             font-weight: 400;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             line-height: 1.2;
             color: #fff;
             text-shadow: none;
@@ -132,9 +182,9 @@
 
         .hero-subtitle-asymmetrical {
             font-family: 'Manrope', sans-serif;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
             color: #fff;
             font-weight: 500;
             text-shadow: none;
@@ -163,11 +213,11 @@
         .hero-content {
             position: relative;
             z-index: 3;
-            padding: 60px;
+            padding: 40px;
             background: white;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-            margin-top: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
         }
 
         .hero-stats-section {
@@ -619,42 +669,143 @@
         }
 
         .metric-subtitle {
-            color: #666;
+            color: #ffffff !important;
             font-size: 0.9rem;
+            text-shadow: none;
+            opacity: 1;
         }
 
         .chart-container {
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #1e3a8a;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
             backdrop-filter: blur(10px);
+            max-width: 100%;
         }
 
         .chart-title {
-            font-size: 1.5rem;
+            font-size: 1rem;
             color: #40E0D0;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             text-align: center;
             font-weight: 600;
         }
 
+        .charts-section {
+            margin-bottom: 40px;
+        }
+        
+        .charts-section h3 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        
+        .charts-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .chart-container {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .chart-container h4 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .service-explanations {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(30, 58, 138, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #1e3a8a;
+        }
+        
+        .service-explanations h5 {
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .service-explanations ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .service-explanations li {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .service-explanations strong {
+            color: #1e3a8a;
+        }
+        
+        .tooltip {
+            position: absolute;
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .tooltip.show {
+            opacity: 1;
+        }
+        
+        .dict-term {
+            cursor: pointer;
+            text-decoration: underline;
+            color: #1e3a8a;
+            transition: color 0.2s;
+        }
+        
+        .dict-term:hover {
+            color: #40E0D0;
+        }
+        
         .data-table {
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #1e3a8a;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
             backdrop-filter: blur(10px);
         }
 
         .table-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #1e3a8a;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
@@ -665,15 +816,17 @@
         }
 
         th, td {
-            padding: 15px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #eee;
         }
 
         th {
             background: #1e3a8a;
-            color: white;
+            color: #ffffff !important;
             font-weight: 600;
+            text-shadow: none;
+            opacity: 1;
         }
 
         tr:hover {
@@ -705,21 +858,21 @@
         .form-section {
             background: white;
             border: 2px solid #1e3a8a;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         .form-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #1e3a8a;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 600;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         label {
@@ -736,6 +889,349 @@
             border-radius: 10px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
+        }
+
+        /* Smart Assignment System Styles */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: #1e3a8a;
+            color: #ffffff !important;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #ffffff !important;
+            text-shadow: none;
+            opacity: 1;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 1;
+            color: #ffffff !important;
+            text-shadow: none;
+        }
+
+        .rating-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .rating-excellent {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .rating-good {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .rating-average {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .assignment-badge {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+            display: inline-block;
+        }
+
+        .capacity-bar {
+            width: 100%;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .capacity-fill {
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: width 0.3s ease;
+        }
+
+        .capacity-available {
+            background: #4caf50;
+        }
+
+        .capacity-warning {
+            background: #ff9800;
+        }
+
+        .capacity-full {
+            background: #f44336;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 0;
+            border: none;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .close {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal form {
+            padding: 20px;
+            max-height: calc(90vh - 80px);
+            overflow-y: auto;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+            padding: 15px 0;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            position: sticky;
+            bottom: 0;
+        }
+
+        .btn-secondary {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+
+        /* Improved form styling for modal */
+        .modal .form-group {
+            margin-bottom: 20px;
+        }
+
+        .modal .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .modal .form-group input,
+        .modal .form-group select,
+        .modal .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .modal .form-group input:focus,
+        .modal .form-group select:focus,
+        .modal .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Responsive modal */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 1% auto;
+                max-height: 95vh;
+            }
+            
+            .modal form {
+                max-height: calc(95vh - 100px);
+            }
+        }
+
+        .client-recommendation-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .client-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .client-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        .client-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .client-detail {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .recommendation-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .recommendation-card:hover {
+            border-color: #1e3a8a;
+            transform: translateY(-2px);
+        }
+
+        .recommendation-card.available {
+            border-color: #4caf50;
+        }
+
+        .recommendation-card.unavailable {
+            border-color: #f44336;
+            opacity: 0.7;
+        }
+
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .recommendation-name {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        .recommendation-score {
+            background: #1e3a8a;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .recommendation-details {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .smart-assign-btn {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .smart-assign-btn:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+
+        .smart-assign-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -1119,6 +1615,116 @@
             font-size: 0.9rem;
             opacity: 0.9;
         }
+
+        /* Client Recommendations Grid */
+        .client-recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .client-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .client-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .client-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .client-header h4 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .client-details {
+            margin-bottom: 15px;
+        }
+
+        .client-details p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .recommendations {
+            margin-bottom: 15px;
+        }
+
+        .recommendations h5 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .match-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .match-score {
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .match-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-right: 10px;
+        }
+
+        .client-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .client-actions select {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .client-actions select:hover {
+            background: #2980b9;
+        }
+
+        .client-actions select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -1126,8 +1732,9 @@
         <button class="nav-tab active" onclick="showTab('home')">Home</button>
         <button class="nav-tab" onclick="showTab('dashboard')">Hub</button>
         <button class="nav-tab" onclick="showTab('clients')">Client Services</button>
-        <button class="nav-tab" onclick="showTab('volunteers')">Volunteers</button>
-        <button class="nav-tab" onclick="showTab('donations')">Donations</button>
+                                <button class="nav-tab" onclick="showTab('doulas')">Doulas</button>
+ 
+            <button class="nav-tab" onclick="showTab('donations')">Donations</button>
         <button class="nav-tab" onclick="showTab('expenses')">Expenses</button>
         <button class="nav-tab" onclick="showTab('tasks')">Tasks</button>
         <button class="nav-tab" onclick="showTab('reports')">Reports</button>
@@ -1157,7 +1764,7 @@
 
             <div class="hero-content">
                 <div class="hero-stats-section">
-                    <h2 style="color: #1e3a8a; font-size: 2.5rem; margin-bottom: 30px; text-align: center; font-family: 'DM Serif Display', serif; font-weight: 400;">Our Impact</h2>
+                    <h2 style="color: #1e3a8a; font-size: 2rem; margin-bottom: 25px; text-align: center; font-family: 'DM Serif Display', serif; font-weight: 400;">Our Impact</h2>
                     <div class="hero-stats-asymmetrical">
                         <div class="hero-stat-asymmetrical">
                             <span class="hero-stat-value-asymmetrical">142</span>
@@ -1399,27 +2006,60 @@
                 </div>
             </div>
 
-            <!-- Consolidated Dashboard Visualizations -->
-            <div class="chart-container">
-                <div class="chart-title">📊 Hub Analytics - 2024 & 2025</div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
-                    <div>
-                        <h3 style="color: #1e3a8a; margin-bottom: 15px; text-align: center;">Monthly Client Enrollment (2024)</h3>
-                        <canvas id="clientChart2024" width="400" height="200"></canvas>
+            <!-- Quick Stats -->
+            <div class="data-table">
+                <div class="table-title">⚡ Quick Stats</div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                    <div style="background: #1e3a8a; color: #ffffff !important; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #ffffff !important; text-shadow: none; opacity: 1;">6</div>
+                        <div style="font-size: 0.8rem; color: #ffffff !important; text-shadow: none; opacity: 1; font-weight: 500;">Active Clients</div>
                     </div>
-                    <div>
-                        <h3 style="color: #1e3a8a; margin-bottom: 15px; text-align: center;">Monthly Client Enrollment (2025)</h3>
-                        <canvas id="clientChart2025" width="400" height="200"></canvas>
+                    <div style="background: #40E0D0; color: #1e3a8a; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #1e3a8a;">3</div>
+                        <div style="font-size: 0.8rem; color: rgba(30, 58, 138, 0.8);">Active Doulas</div>
+                    </div>
+                    <div style="background: #1e3a8a; color: #ffffff !important; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #ffffff !important; text-shadow: none; opacity: 1;">$8,500</div>
+                        <div style="font-size: 0.8rem; color: #ffffff !important; text-shadow: none; opacity: 1; font-weight: 500;">Total Donations</div>
+                    </div>
+                    <div style="background: #40E0D0; color: #1e3a8a; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #1e3a8a;">3</div>
+                        <div style="font-size: 0.8rem; color: rgba(30, 58, 138, 0.8);">Pending Tasks</div>
                     </div>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                    <div>
-                        <h3 style="color: #1e3a8a; margin-bottom: 15px; text-align: center;">Donations vs Expenses (2024)</h3>
-                        <canvas id="financialChart2024" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Hub Analytics Charts -->
+            <div style="margin: 30px 0;">
+                <h2 style="color: #1e3a8a; text-align: center; font-size: 2rem; margin-bottom: 30px;">📊 Hub Analytics Dashboard</h2>
+                
+                <!-- Client Enrollment Charts -->
+                <div style="margin-bottom: 40px;">
+                    <h3 style="color: #1e3a8a; font-size: 1.5rem; margin-bottom: 20px; text-align: center;">Monthly Client Enrollment</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <h4 style="color: #1e3a8a; text-align: center; margin-bottom: 15px; font-size: 1.3rem;">2024 Data</h4>
+                            <canvas id="clientChart2024" width="800" height="500"></canvas>
+                        </div>
+                        <div>
+                            <h4 style="color: #1e3a8a; text-align: center; margin-bottom: 15px; font-size: 1.3rem;">2025 Data</h4>
+                            <canvas id="clientChart2025" width="800" height="500"></canvas>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="color: #1e3a8a; margin-bottom: 15px; text-align: center;">Donations vs Expenses (2025)</h3>
-                        <canvas id="financialChart2025" width="400" height="200"></canvas>
+                </div>
+                
+                <!-- Financial Charts -->
+                <div>
+                    <h3 style="color: #1e3a8a; font-size: 1.5rem; margin-bottom: 20px; text-align: center;">Financial Overview</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <h4 style="color: #1e3a8a; text-align: center; margin-bottom: 15px; font-size: 1.3rem;">2024 Donations vs Expenses</h4>
+                            <canvas id="financialChart2024" width="800" height="500"></canvas>
+                        </div>
+                        <div>
+                            <h4 style="color: #1e3a8a; text-align: center; margin-bottom: 15px; font-size: 1.3rem;">2025 Donations vs Expenses</h4>
+                            <canvas id="financialChart2025" width="800" height="500"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1429,33 +2069,29 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Client ID</th>
                             <th>Client Name</th>
-                            <th>Service Type</th>
                             <th>Provider</th>
-                            <th>Date</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1001</td>
                             <td>Sarah Johnson</td>
-                            <td>Prenatal Visit</td>
                             <td>Dr. Emily Chen</td>
-                            <td>2024-01-15</td>
                             <td><span class="status-badge status-completed">Completed</span></td>
                         </tr>
                         <tr>
+                            <td>1002</td>
                             <td>Maria Rodriguez</td>
-                            <td>Postpartum Check</td>
                             <td>Nurse Sarah Williams</td>
-                            <td>2024-01-14</td>
                             <td><span class="status-badge status-completed">Completed</span></td>
                         </tr>
                         <tr>
+                            <td>1003</td>
                             <td>Jennifer Smith</td>
-                            <td>Mental Health Session</td>
                             <td>Dr. Emily Chen</td>
-                            <td>2024-01-13</td>
                             <td><span class="status-badge status-active">In Progress</span></td>
                         </tr>
                     </tbody>
@@ -1469,17 +2105,81 @@
                 <div class="form-title">👤 Add New Client</div>
                 <form id="clientForm">
                     <div class="form-group">
+                        <label for="clientID">Client ID</label>
+                        <input type="text" id="clientID" placeholder="Auto-generated" readonly>
+                    </div>
+                    <div class="form-group">
                         <label for="clientName">Client Name</label>
                         <input type="text" id="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enrollmentDate">Enrollment Date</label>
+                        <input type="date" id="enrollmentDate" required>
                     </div>
                     <div class="form-group">
                         <label for="dueDate">Due Date</label>
                         <input type="date" id="dueDate">
                     </div>
                     <div class="form-group">
-                        <label for="mentalHealthScore">Mental Health Score (1-10)</label>
-                        <input type="number" id="mentalHealthScore" min="1" max="10">
+                        <label for="mentalHealthScore">Mental Health Score</label>
+                        <select id="mentalHealthScore" required>
+                            <option value="">Select Score (1-10)</option>
+                            <option value="1">1 - Very Poor</option>
+                            <option value="2">2 - Poor</option>
+                            <option value="3">3 - Below Average</option>
+                            <option value="4">4 - Average</option>
+                            <option value="5">5 - Fair</option>
+                            <option value="6">6 - Good</option>
+                            <option value="7">7 - Very Good</option>
+                            <option value="8">8 - Excellent</option>
+                            <option value="9">9 - Outstanding</option>
+                            <option value="10">10 - Exceptional</option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="clientStatus">Status</label>
+                        <select id="clientStatus" required>
+                            <option value="">Select Status</option>
+                            <option value="active">Active</option>
+                            <option value="completed">Completed</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientLanguages">Primary Language Spoken</label>
+                        <select id="clientLanguages" required>
+                            <option value="">Select Primary Language</option>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Mandarin">Mandarin</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Russian">Russian</option>
+                            <option value="German">German</option>
+                            <option value="Italian">Italian</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pregnancyRisk">Pregnancy Risk Level</label>
+                        <select id="pregnancyRisk" required>
+                            <option value="">Select Risk Level</option>
+                            <option value="Low">Low Risk</option>
+                            <option value="Medium">Medium Risk</option>
+                            <option value="High">High Risk</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pregnancyType">Pregnancy Type</label>
+                        <select id="pregnancyType" required>
+                            <option value="">Select Pregnancy Type</option>
+                            <option value="Singleton">Singleton</option>
+                            <option value="Twins">Twins</option>
+                            <option value="Triplets">Triplets</option>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="clientNotes">Notes</label>
                         <textarea id="clientNotes" rows="3"></textarea>
@@ -1515,140 +2215,680 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Client ID</th>
                             <th>Client Name</th>
-                            <th>Due Date</th>
                             <th>Enrollment Date</th>
+                            <th>Due Date</th>
                             <th>Mental Health Score</th>
+                            <th>Languages</th>
+                            <th>Risk Level</th>
+                            <th>Pregnancy Type</th>
                             <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="clientTableBody">
                         <tr>
+                            <td>1001</td>
                             <td>Sarah Johnson</td>
-                            <td>2024-08-15</td>
-                            <td>2024-01-10</td>
+                            <td>2024-10-15</td>
+                            <td>2025-08-15</td>
                             <td>8/10</td>
+                            <td>English</td>
+                            <td>Low</td>
+                            <td>Singleton</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn" onclick="updateClientStatus(0)">Update Status</button></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="updateClientStatus(0)">Update Status</button>
+                                <button class="btn btn-sm" onclick="editClient(0)">Edit</button>
+                            </td>
                         </tr>
                         <tr>
+                            <td>1002</td>
                             <td>Maria Rodriguez</td>
-                            <td>2024-09-20</td>
-                            <td>2024-01-05</td>
+                            <td>2024-11-20</td>
+                            <td>2025-09-20</td>
                             <td>7/10</td>
+                            <td>Spanish, English</td>
+                            <td>Medium</td>
+                            <td>Singleton</td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn" onclick="updateClientStatus(1)">Update Status</button></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="updateClientStatus(1)">Update Status</button>
+                                <button class="btn btn-sm" onclick="editClient(1)">Edit</button>
+                            </td>
                         </tr>
                         <tr>
+                            <td>1003</td>
                             <td>Jennifer Smith</td>
-                            <td>2024-07-10</td>
-                            <td>2023-12-15</td>
+                            <td>2024-09-05</td>
+                            <td>2025-07-10</td>
                             <td>9/10</td>
+                            <td>English</td>
+                            <td>High</td>
+                            <td>Singleton</td>
                             <td><span class="status-badge status-completed">Completed</span></td>
-                            <td><button class="btn" onclick="updateClientStatus(2)">Update Status</button></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="updateClientStatus(2)">Update Status</button>
+                                <button class="btn btn-sm" onclick="editClient(2)">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1004</td>
+                            <td>Jessica Martinez</td>
+                            <td>2024-12-01</td>
+                            <td>2025-11-15</td>
+                            <td>6/10</td>
+                            <td>Spanish</td>
+                            <td>Low</td>
+                            <td>Singleton</td>
+                            <td><span class="status-badge status-pending">Unassigned</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="updateClientStatus(3)">Update Status</button>
+                                <button class="btn btn-sm" onclick="editClient(3)">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1005</td>
+                            <td>Rachel Green</td>
+                            <td>2024-11-15</td>
+                            <td>2025-12-01</td>
+                            <td>8/10</td>
+                            <td>English</td>
+                            <td>Medium</td>
+                            <td>Twins</td>
+                            <td><span class="status-badge status-pending">Unassigned</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="updateClientStatus(4)">Update Status</button>
+                                <button class="btn btn-sm" onclick="editClient(4)">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1006</td>
+                            <td>Sofia Patel</td>
+                            <td>2024-10-30</td>
+                            <td>2025-10-20</td>
+                            <td>7/10</td>
+                            <td>English, Hindi</td>
+                            <td>High</td>
+                            <td>High-risk</td>
+                            <td><span class="status-badge status-pending">Unassigned</span></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="updateClientStatus(5)">Update Status</button>
+                                <button class="btn btn-sm" onclick="editClient(5)">Edit</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Volunteers Tab -->
-        <div id="volunteers" class="tab-content">
+        <!-- Edit Client Modal -->
+        <div id="editClientModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit Client Information</h3>
+                    <span class="close" onclick="closeEditModal()">&times;</span>
+                </div>
+                <form id="editClientForm">
+                    <div style="padding: 20px; max-height: calc(90vh - 140px); overflow-y: auto;">
+                        <div class="form-group">
+                            <label for="editClientID">Client ID</label>
+                            <input type="text" id="editClientID" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="editClientName">Client Name</label>
+                            <input type="text" id="editClientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEnrollmentDate">Enrollment Date</label>
+                            <input type="date" id="editEnrollmentDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDueDate">Due Date</label>
+                            <input type="date" id="editDueDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editMentalHealthScore">Mental Health Score</label>
+                            <select id="editMentalHealthScore" required>
+                                <option value="1">1 - Very Poor</option>
+                                <option value="2">2 - Poor</option>
+                                <option value="3">3 - Below Average</option>
+                                <option value="4">4 - Average</option>
+                                <option value="5">5 - Fair</option>
+                                <option value="6">6 - Good</option>
+                                <option value="7">7 - Very Good</option>
+                                <option value="8">8 - Excellent</option>
+                                <option value="9">9 - Outstanding</option>
+                                <option value="10">10 - Exceptional</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editClientLanguages">Languages</label>
+                            <select id="editClientLanguages" multiple>
+                                <option value="English">English</option>
+                                <option value="Spanish">Spanish</option>
+                                <option value="French">French</option>
+                                <option value="Portuguese">Portuguese</option>
+                                <option value="Hindi">Hindi</option>
+                                <option value="Mandarin">Mandarin</option>
+                                <option value="Arabic">Arabic</option>
+                                <option value="Russian">Russian</option>
+                                <option value="German">German</option>
+                                <option value="Italian">Italian</option>
+                            </select>
+                            <small style="color: #666; font-size: 0.8rem;">Hold Ctrl/Cmd to select multiple languages</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPregnancyRisk">Pregnancy Risk Level</label>
+                            <select id="editPregnancyRisk" required>
+                                <option value="Low">Low Risk</option>
+                                <option value="Medium">Medium Risk</option>
+                                <option value="High">High Risk</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editPregnancyType">Pregnancy Type</label>
+                            <select id="editPregnancyType" required>
+                                <option value="Singleton">Singleton</option>
+                                <option value="Twins">Twins</option>
+                                <option value="Triplets">Triplets</option>
+                                <option value="High-risk">High-risk</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editClientStatus">Status</label>
+                            <select id="editClientStatus" required>
+                                <option value="Active">Active</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Unassigned">Unassigned</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editClientNotes">Notes</label>
+                            <textarea id="editClientNotes" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+                        <button type="button" class="btn" onclick="saveEditedClientManual()">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- Doulas Tab -->
+        <div id="doulas" class="tab-content">
             <div class="form-section">
-                <div class="form-title">Add New Volunteer</div>
-                <form id="volunteerForm">
+                <div class="form-title">🤱 Apply to Become a Doula</div>
+                <form id="doulaApplicationForm">
                     <div class="form-group">
-                        <label for="volunteerName">Volunteer Name</label>
-                        <input type="text" id="volunteerName" required>
+                        <label for="doulaID">Doula ID</label>
+                        <input type="text" id="doulaID" placeholder="Auto-generated" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="volunteerEmail">Email</label>
-                        <input type="email" id="volunteerEmail">
+                        <label for="applicantName">Full Name</label>
+                        <input type="text" id="applicantName" required>
                     </div>
                     <div class="form-group">
-                        <label for="volunteerPhone">Phone</label>
-                        <input type="tel" id="volunteerPhone">
+                        <label for="applicantEmail">Email</label>
+                        <input type="email" id="applicantEmail" required>
                     </div>
                     <div class="form-group">
-                        <label for="volunteerRole">Role</label>
-                        <select id="volunteerRole">
-                            <option value="doula">Doula</option>
-                            <option value="admin">Admin</option>
-                            <option value="support">Support</option>
+                        <label for="applicantPhone">Phone</label>
+                        <input type="tel" id="applicantPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantLanguages">Languages You Speak</label>
+                        <select id="applicantLanguages" multiple>
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Mandarin">Mandarin</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Russian">Russian</option>
+                            <option value="German">German</option>
+                            <option value="Italian">Italian</option>
+                        </select>
+                        <small style="color: #666; font-size: 0.8rem;">Hold Ctrl/Cmd to select multiple languages</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantSpecialties">Specialties</label>
+                        <select id="applicantSpecialties" multiple>
+                            <option value="High-risk">High-risk Pregnancies</option>
+                            <option value="Twins">Twins/Multiples</option>
+                            <option value="Singleton">Singleton Births</option>
+                            <option value="General">General Support</option>
+                            <option value="Postpartum">Postpartum Care</option>
+                            <option value="Lactation">Lactation Support</option>
+                        </select>
+                        <small style="color: #666; font-size: 0.8rem;">Hold Ctrl/Cmd to select multiple specialties</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantRiskLevel">Pregnancy Risk Level</label>
+                        <select id="applicantRiskLevel" required>
+                            <option value="">Select Risk Level</option>
+                            <option value="Low">Low Risk</option>
+                            <option value="Medium">Medium Risk</option>
+                            <option value="High">High Risk</option>
+                            <option value="All">All Risk Levels</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn">Add Volunteer</button>
+                    <div class="form-group">
+                        <label for="applicantRiskType">Risk Type</label>
+                        <select id="applicantRiskType" required>
+                            <option value="">Select Risk Type</option>
+                            <option value="Diabetes">Gestational Diabetes</option>
+                            <option value="Hypertension">Hypertension/Preeclampsia</option>
+                            <option value="Placenta">Placenta Issues</option>
+                            <option value="Multiple">Multiple Pregnancy</option>
+                            <option value="Age">Advanced Maternal Age</option>
+                            <option value="Previous">Previous Complications</option>
+                            <option value="General">General Risk</option>
+                            <option value="None">No Specific Risk</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantExperience">Years of Experience</label>
+                        <input type="number" id="applicantExperience" min="0" max="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantCertification">Certification Level</label>
+                        <select id="applicantCertification" required>
+                            <option value="">Select Certification</option>
+                            <option value="Certified">Certified Doula</option>
+                            <option value="Trained">Trained (Not Certified)</option>
+                            <option value="Student">Student/In Training</option>
+                            <option value="Experienced">Experienced (No Formal Training)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantMaxClients">Maximum Clients You Can Handle</label>
+                        <input type="number" id="applicantMaxClients" min="1" max="5" value="3" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantAvailability">Availability</label>
+                        <select id="applicantAvailability" required>
+                            <option value="">Select Availability</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="part-time">Part-time</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantMotivation">Why do you want to become a doula?</label>
+                        <textarea id="applicantMotivation" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit Application</button>
                 </form>
             </div>
 
+
+
+            <!-- Doula Directory -->
             <div class="data-table">
-                <div class="table-title">Doula Assignment Tracker</div>
+                <div class="table-title">👩‍⚕️ Doula Directory</div>
                 <table>
                     <thead>
                         <tr>
-                            <th>Volunteer Name</th>
-                            <th>Role</th>
-                            <th>Email</th>
-                            <th>Hours Contributed</th>
+                            <th>Doula ID</th>
+                            <th>Doula Name</th>
+                            <th>Specialties & Languages</th>
+                            <th>Experience & Rating</th>
+                            <th>Current Assignments</th>
+                            <th>Capacity</th>
                             <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="volunteerTableBody">
+                    <tbody id="doulaDirectoryTableBody">
                         <tr>
-                            <td>Dr. Emily Chen</td>
-                            <td>Doula</td>
-                            <td>emily@mamatoto.org</td>
-                            <td>45.5 hours</td>
+                            <td>5001</td>
+                            <td>
+                                <strong>Dr. Emily Chen</strong><br>
+                                <small>emily@mamatoto.org</small>
+                            </td>
+                            <td>
+                                <strong>Specialties:</strong> High-risk, Twins<br>
+                                <strong>Languages:</strong> English, Spanish<br>
+                                <strong>Risk Level:</strong> All
+                            </td>
+                            <td>
+                                <strong>Experience:</strong> 8 years<br>
+                                <strong>Rating:</strong> <span class="rating-badge rating-excellent">4.8</span><br>
+                                <strong>Success Rate:</strong> 92%
+                            </td>
+                            <td>
+                                <div class="assignment-badge">Sarah Johnson</div>
+                                <small>Score: 80</small><br>
+                                <div class="assignment-badge">Maria Rodriguez</div>
+                                <small>Score: 77</small><br>
+                                <div class="assignment-badge">Jennifer Smith</div>
+                                <small>Score: 93</small>
+                            </td>
+                            <td>
+                                <div class="capacity-bar">
+                                    <div class="capacity-fill capacity-full" style="width: 100%">3/3</div>
+                                </div>
+                                <small>Full-time availability</small>
+                            </td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn" onclick="updateVolunteerStatus(0)">Update Status</button></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="viewDoulaDetails(1)">View</button>
+                                <button class="btn btn-sm" onclick="editDoula(1)">Edit</button>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Nurse Sarah Williams</td>
-                            <td>Doula</td>
-                            <td>sarah@mamatoto.org</td>
-                            <td>32.0 hours</td>
+                            <td>5002</td>
+                            <td>
+                                <strong>Nurse Sarah Williams</strong><br>
+                                <small>sarah@mamatoto.org</small>
+                            </td>
+                            <td>
+                                <strong>Specialties:</strong> Singleton, General<br>
+                                <strong>Languages:</strong> English<br>
+                                <strong>Risk Level:</strong> Low, Medium
+                            </td>
+                            <td>
+                                <strong>Experience:</strong> 3 years<br>
+                                <strong>Rating:</strong> <span class="rating-badge rating-good">4.5</span><br>
+                                <strong>Success Rate:</strong> 93%
+                            </td>
+                            <td>
+                                <div class="assignment-badge">Amanda Davis</div>
+                                <small>Score: 70</small><br>
+                                <div class="assignment-badge">Lisa Thompson</div>
+                                <small>Score: 71</small>
+                            </td>
+                            <td>
+                                <div class="capacity-bar">
+                                    <div class="capacity-fill capacity-available" style="width: 100%">2/2</div>
+                                </div>
+                                <small>Part-time availability</small>
+                            </td>
                             <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn" onclick="updateVolunteerStatus(1)">Update Status</button></td>
-                        </tr>
-                        <tr>
-                            <td>Maria Garcia</td>
-                            <td>Support</td>
-                            <td>maria@mamatoto.org</td>
-                            <td>28.5 hours</td>
-                            <td><span class="status-badge status-active">Active</span></td>
-                            <td><button class="btn" onclick="updateVolunteerStatus(2)">Update Status</button></td>
+                            <td>
+                                <button class="btn btn-sm" onclick="viewDoulaDetails(2)">View</button>
+                                <button class="btn btn-sm" onclick="editDoula(2)">Edit</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            <!-- Smart Assignment System Overview -->
+            <div class="data-table">
+                <div class="table-title">🧠 Smart Assignment System Overview</div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="smartActiveDoulas">2</div>
+                        <div class="metric-label">Active Doulas</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="smartCurrentAssignments">3</div>
+                        <div class="metric-label">Current Assignments</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="smartUnassignedClients">3</div>
+                        <div class="metric-label">Unassigned Clients</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="smartPendingApplications">2</div>
+                        <div class="metric-label">Pending Applications</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Assignments -->
+            <div class="data-table">
+                <div class="table-title">📋 Current Doula Assignments</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Assigned Doula</th>
+                            <th>Capacity</th>
+                            <th>Assignment Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="currentAssignmentsTable">
+                        <tr>
+                            <td>
+                                <strong>Sarah Johnson</strong><br>
+                                <small>Due: 2025-08-15 | English | Low Risk | Singleton</small>
+                            </td>
+                            <td>
+                                <strong>Dr. Emily Chen</strong><br>
+                                <small>Rating: 4.8 | 8 years exp.</small>
+                            </td>
+                            <td>
+                                <div class="capacity-bar">
+                                    <div class="capacity-fill capacity-available" style="width: 80%"></div>
+                                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8rem; color: #333;">3/3</span>
+                                </div>
+                            </td>
+                            <td>2025-01-15</td>
+                            <td>
+                                <small>
+                                    <strong>Status:</strong> Active assignment<br>
+                                    <strong>Language:</strong> English compatibility<br>
+                                    <strong>Risk Level:</strong> Low risk handled appropriately
+                                </small>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm" onclick="completeAssignment(1)">Complete</button>
+                                <button class="btn btn-sm" onclick="transferAssignment(1)">Transfer</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Maria Rodriguez</strong><br>
+                                <small>Due: 2025-09-20 | Spanish, English | Medium Risk | Singleton</small>
+                            </td>
+                            <td>
+                                <strong>Dr. Emily Chen</strong><br>
+                                <small>Rating: 4.8 | 8 years exp.</small>
+                            </td>
+                            <td>
+                                <div class="capacity-bar">
+                                    <div class="capacity-fill capacity-available" style="width: 77%"></div>
+                                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8rem; color: #333;">3/3</span>
+                                </div>
+                            </td>
+                            <td>2025-01-16</td>
+                            <td>
+                                <small>
+                                    <strong>Status:</strong> Active assignment<br>
+                                    <strong>Language:</strong> Spanish compatibility<br>
+                                    <strong>Risk Level:</strong> Medium risk handled appropriately
+                                </small>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm" onclick="completeAssignment(2)">Complete</button>
+                                <button class="btn btn-sm" onclick="transferAssignment(2)">Transfer</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Jennifer Smith</strong><br>
+                                <small>Due: 2025-07-10 | English | High Risk | Singleton</small>
+                            </td>
+                            <td>
+                                <strong>Dr. Emily Chen</strong><br>
+                                <small>Rating: 4.8 | 8 years exp.</small>
+                            </td>
+                            <td>
+                                <div class="capacity-bar">
+                                    <div class="capacity-fill capacity-available" style="width: 93%"></div>
+                                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8rem; color: #333;">3/3</span>
+                                </div>
+                            </td>
+                            <td>2025-01-17</td>
+                            <td>
+                                <small>
+                                    <strong>Status:</strong> Active assignment<br>
+                                    <strong>Language:</strong> English compatibility<br>
+                                    <strong>Risk Level:</strong> High risk handled appropriately
+                                </small>
+                            </td>
+                            <td>
+                                <button class="btn btn-sm" onclick="completeAssignment(3)">Complete</button>
+                                <button class="btn btn-sm" onclick="transferAssignment(3)">Transfer</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Unassigned Clients with Smart Recommendations -->
+            <div class="data-table">
+                <div class="table-title">👥 Unassigned Clients - Smart Recommendations</div>
+                <div class="client-recommendations-grid">
+                    <div class="client-card">
+                        <div class="client-header">
+                            <h4>Jessica Martinez</h4>
+                            <span class="status-badge status-pending">Unassigned</span>
+                        </div>
+                        <div class="client-details">
+                            <p><strong>Due Date:</strong> 2025-11-15</p>
+                            <p><strong>Language:</strong> Spanish</p>
+                            <p><strong>Risk Level:</strong> Low</p>
+                            <p><strong>Pregnancy Type:</strong> Singleton</p>
+                        </div>
+                        <div class="recommendations">
+                            <h5>Top Doula Matches:</h5>
+                            <div class="match-item">
+                                <span class="match-score">85%</span>
+                                <span class="match-name">Dr. Emily Chen</span>
+                                <small>Spanish speaker, experienced with low-risk</small>
+                            </div>
+                            <div class="match-item">
+                                <span class="match-score">72%</span>
+                                <span class="match-name">Nurse Sarah Williams</span>
+                                <small>Good general experience</small>
+                            </div>
+                        </div>
+                        <div class="client-actions">
+                            <select class="btn btn-sm" onchange="assignClient('Jessica Martinez', this.value)" style="margin-right: 10px;">
+                                <option value="">Select Doula...</option>
+                                <option value="Dr. Emily Chen">Dr. Emily Chen (85% match)</option>
+                                <option value="Nurse Sarah Williams">Nurse Sarah Williams (72% match)</option>
+                            </select>
+                            <button class="btn btn-sm" onclick="viewClientDetails('Jessica Martinez')">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="client-card">
+                        <div class="client-header">
+                            <h4>Rachel Green</h4>
+                            <span class="status-badge status-pending">Unassigned</span>
+                        </div>
+                        <div class="client-details">
+                            <p><strong>Due Date:</strong> 2025-12-01</p>
+                            <p><strong>Language:</strong> English</p>
+                            <p><strong>Risk Level:</strong> Medium</p>
+                            <p><strong>Pregnancy Type:</strong> Twins</p>
+                        </div>
+                        <div class="recommendations">
+                            <h5>Top Doula Matches:</h5>
+                            <div class="match-item">
+                                <span class="match-score">91%</span>
+                                <span class="match-name">Dr. Emily Chen</span>
+                                <small>Twins specialist, high experience</small>
+                            </div>
+                            <div class="match-item">
+                                <span class="match-score">68%</span>
+                                <span class="match-name">Nurse Sarah Williams</span>
+                                <small>General experience</small>
+                            </div>
+                        </div>
+                        <div class="client-actions">
+                            <select class="btn btn-sm" onchange="assignClient('Rachel Green', this.value)" style="margin-right: 10px;">
+                                <option value="">Select Doula...</option>
+                                <option value="Dr. Emily Chen">Dr. Emily Chen (91% match)</option>
+                                <option value="Nurse Sarah Williams">Nurse Sarah Williams (68% match)</option>
+                            </select>
+                            <button class="btn btn-sm" onclick="viewClientDetails('Rachel Green')">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="client-card">
+                        <div class="client-header">
+                            <h4>Sofia Patel</h4>
+                            <span class="status-badge status-pending">Unassigned</span>
+                        </div>
+                        <div class="client-details">
+                            <p><strong>Due Date:</strong> 2025-10-20</p>
+                            <p><strong>Language:</strong> English, Hindi</p>
+                            <p><strong>Risk Level:</strong> High</p>
+                            <p><strong>Pregnancy Type:</strong> High-risk</p>
+                        </div>
+                        <div class="recommendations">
+                            <h5>Top Doula Matches:</h5>
+                            <div class="match-item">
+                                <span class="match-score">88%</span>
+                                <span class="match-name">Dr. Emily Chen</span>
+                                <small>High-risk specialist, excellent rating</small>
+                            </div>
+                            <div class="match-item">
+                                <span class="match-score">45%</span>
+                                <span class="match-name">Nurse Sarah Williams</span>
+                                <small>Limited high-risk experience</small>
+                            </div>
+                        </div>
+                        <div class="client-actions">
+                            <select class="btn btn-sm" onchange="assignClient('Sofia Patel', this.value)" style="margin-right: 10px;">
+                                <option value="">Select Doula...</option>
+                                <option value="Dr. Emily Chen">Dr. Emily Chen (88% match)</option>
+                                <option value="Nurse Sarah Williams">Nurse Sarah Williams (45% match)</option>
+                            </select>
+                            <button class="btn btn-sm" onclick="viewClientDetails('Sofia Patel')">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        
 
         <!-- Donations Tab -->
         <div id="donations" class="tab-content">
             <div class="form-section">
                 <div class="form-title">Add New Donation</div>
-                <form id="donationForm">
+                <form id="newDonationForm">
                     <div class="form-group">
-                        <label for="donorName">Donor Name</label>
-                        <input type="text" id="donorName" required>
+                        <label for="newDonorName">Donor Name *</label>
+                        <input type="text" id="newDonorName" required placeholder="Enter donor name">
                     </div>
                     <div class="form-group">
-                        <label for="donationAmount">Amount</label>
-                        <input type="number" id="donationAmount" step="0.01" required>
+                        <label for="newDonationAmount">Amount *</label>
+                        <input type="number" id="newDonationAmount" step="0.01" required placeholder="Enter amount">
                     </div>
                     <div class="form-group">
-                        <label for="donationType">Donation Type</label>
-                        <select id="donationType">
-                            <option value="monetary">Monetary</option>
-                            <option value="in-kind">In-Kind</option>
-                            <option value="equipment">Equipment</option>
+                        <label for="newDonationType">Type *</label>
+                        <select id="newDonationType" required>
+                            <option value="">Select donation type</option>
+                            <option value="Monetary">Monetary</option>
+                            <option value="In-Kind">In-Kind</option>
+                            <option value="Equipment">Equipment</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="donationNotes">Notes</label>
-                        <textarea id="donationNotes" rows="3"></textarea>
+                        <label for="newDonationDate">Date *</label>
+                        <input type="date" id="newDonationDate" required>
                     </div>
-                    <button type="submit" class="btn">Add Donation</button>
+                    <div class="form-group">
+                        <label for="newDonationNotes">Notes</label>
+                        <textarea id="newDonationNotes" rows="3" placeholder="Optional notes about the donation"></textarea>
+                    </div>
+                    <button type="button" class="btn" onclick="submitNewDonation()">Add Donation</button>
                 </form>
             </div>
 
@@ -1657,6 +2897,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Donation ID</th>
                             <th>Donor Name</th>
                             <th>Amount</th>
                             <th>Type</th>
@@ -1664,8 +2905,9 @@
                             <th>Notes</th>
                         </tr>
                     </thead>
-                    <tbody id="donationTableBody">
+                    <tbody id="newDonationTableBody">
                         <tr>
+                            <td>2001</td>
                             <td>Community Foundation</td>
                             <td>$5,000.00</td>
                             <td>Monetary</td>
@@ -1673,6 +2915,7 @@
                             <td>General program support</td>
                         </tr>
                         <tr>
+                            <td>2002</td>
                             <td>Anonymous Donor</td>
                             <td>$2,500.00</td>
                             <td>Monetary</td>
@@ -1680,6 +2923,7 @@
                             <td>Maternal health initiative</td>
                         </tr>
                         <tr>
+                            <td>2003</td>
                             <td>Local Hospital</td>
                             <td>$1,000.00</td>
                             <td>In-Kind</td>
@@ -1696,6 +2940,10 @@
             <div class="form-section">
                 <div class="form-title">Add New Expense</div>
                 <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="expenseID">Expense ID</label>
+                        <input type="text" id="expenseID" placeholder="Auto-generated" readonly>
+                    </div>
                     <div class="form-group">
                         <label for="expenseDescription">Description</label>
                         <input type="text" id="expenseDescription" required>
@@ -1725,6 +2973,7 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Expense ID</th>
                             <th>Description</th>
                             <th>Amount</th>
                             <th>Category</th>
@@ -1734,6 +2983,7 @@
                     </thead>
                     <tbody id="expenseTableBody">
                         <tr>
+                            <td>4001</td>
                             <td>Program materials</td>
                             <td>$1,200.00</td>
                             <td>Program</td>
@@ -1741,6 +2991,7 @@
                             <td>Dr. Emily Chen</td>
                         </tr>
                         <tr>
+                            <td>4002</td>
                             <td>Office supplies</td>
                             <td>$300.00</td>
                             <td>Administrative</td>
@@ -1748,6 +2999,7 @@
                             <td>Lisa Johnson</td>
                         </tr>
                         <tr>
+                            <td>4003</td>
                             <td>Training workshop</td>
                             <td>$800.00</td>
                             <td>Program</td>
@@ -1842,17 +3094,33 @@
 
         <!-- Reports Tab -->
         <div id="reports" class="tab-content">
-            <div class="chart-container">
-                <div class="chart-title">Service Analytics - 2024 & 2025</div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                    <div>
-                        <h3 style="color: #1e3a8a; margin-bottom: 15px; text-align: center;">Service Type Distribution (2024)</h3>
-                        <canvas id="serviceChart2024" width="400" height="200"></canvas>
+
+            <!-- Service Analytics Charts -->
+            <div class="charts-section">
+                <h3>Service Distribution Analytics</h3>
+                
+                <!-- Service Distribution Charts -->
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h4>2024 Service Distribution</h4>
+                        <canvas id="serviceChart2024" width="500" height="500"></canvas>
                     </div>
-                    <div>
-                        <h3 style="color: #1e3a8a; margin-bottom: 15px; text-align: center;">Service Type Distribution (2025)</h3>
-                        <canvas id="serviceChart2025" width="400" height="200"></canvas>
+                    <div class="chart-container">
+                        <h4>2025 Service Distribution</h4>
+                        <canvas id="serviceChart2025" width="500" height="500"></canvas>
                     </div>
+                </div>
+                
+                <!-- Service Descriptions -->
+                <div class="service-explanations">
+                    <h5>Service Descriptions:</h5>
+                    <ul>
+                        <li><strong>Prenatal Visits:</strong> Regular check-ups and medical monitoring during pregnancy</li>
+                        <li><strong>Postpartum Care:</strong> Support and medical care for mothers after childbirth</li>
+                        <li><strong>Doula Support:</strong> Emotional and physical support during pregnancy, labor, and postpartum</li>
+                        <li><strong>Mental Health:</strong> Counseling and emotional support services for maternal mental health</li>
+                        <li><strong>Education:</strong> Prenatal classes and parenting workshops</li>
+                    </ul>
                 </div>
             </div>
 
@@ -2394,46 +3662,7 @@
                             </div>
                         </div>
 
-                        <!-- Service Data -->
-                        <div>
-                            <h3 style="color: #1e3a8a; margin-bottom: 20px; border-bottom: 2px solid #40E0D0; padding-bottom: 10px;">Service Data Fields</h3>
-                            <div style="margin-bottom: 15px;">
-                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Service ID</h4>
-                                <p><strong>Type:</strong> Integer (Primary Key)</p>
-                                <p><strong>Description:</strong> Unique identifier for each service provided</p>
-                                <p><strong>Example:</strong> 5001, 5002, 5003</p>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Service Type</h4>
-                                <p><strong>Type:</strong> String (50 characters)</p>
-                                <p><strong>Description:</strong> Type of service provided</p>
-                                <p><strong>Values:</strong> "prenatal", "postpartum", "doula", "education"</p>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Provider</h4>
-                                <p><strong>Type:</strong> String (100 characters)</p>
-                                <p><strong>Description:</strong> Name of volunteer or staff providing service</p>
-                                <p><strong>Example:</strong> "Dr. Emily Chen"</p>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Service Date</h4>
-                                <p><strong>Type:</strong> DateTime</p>
-                                <p><strong>Description:</strong> Date and time service was provided</p>
-                                <p><strong>Example:</strong> "2024-01-15 14:30:00"</p>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Duration</h4>
-                                <p><strong>Type:</strong> Integer (minutes)</p>
-                                <p><strong>Description:</strong> Length of service in minutes</p>
-                                <p><strong>Example:</strong> 60, 90, 120</p>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Outcome Score</h4>
-                                <p><strong>Type:</strong> Integer (1-10)</p>
-                                <p><strong>Description:</strong> Client satisfaction with service</p>
-                                <p><strong>Example:</strong> 8, 9, 10</p>
-                            </div>
-                        </div>
+
 
                         <!-- Financial Data -->
                         <div>
@@ -2469,6 +3698,12 @@
                                 <p><strong>Values:</strong> "program", "admin", "fundraising"</p>
                             </div>
                             <div style="margin-bottom: 15px;">
+                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Expense ID</h4>
+                                <p><strong>Type:</strong> Integer (Primary Key)</p>
+                                <p><strong>Description:</strong> Unique identifier for each expense record</p>
+                                <p><strong>Example:</strong> 4001, 4002, 4003</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
                                 <h4 style="color: #40E0D0; margin-bottom: 8px;">ROI</h4>
                                 <p><strong>Type:</strong> Decimal (5,2)</p>
                                 <p><strong>Description:</strong> Return on investment percentage</p>
@@ -2484,6 +3719,12 @@
                                 <p><strong>Type:</strong> Integer (Primary Key)</p>
                                 <p><strong>Description:</strong> Unique identifier for each volunteer</p>
                                 <p><strong>Example:</strong> 3001, 3002, 3003</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <h4 style="color: #40E0D0; margin-bottom: 8px;">Doula ID</h4>
+                                <p><strong>Type:</strong> Integer (Primary Key)</p>
+                                <p><strong>Description:</strong> Unique identifier for each doula in the system</p>
+                                <p><strong>Example:</strong> 5001, 5002, 5003</p>
                             </div>
                             <div style="margin-bottom: 15px;">
                                 <h4 style="color: #40E0D0; margin-bottom: 8px;">Role</h4>
@@ -2538,6 +3779,11 @@
             
             // Add active class to clicked tab
             event.target.classList.add('active');
+            
+            // Initialize doula directory if showing doulas tab
+            if (tabName === 'doulas') {
+                updateDoulaDirectoryTable();
+            }
         }
 
         // Initialize charts when page loads
@@ -2662,78 +3908,105 @@
                 }
             });
 
-            // Reports Charts - Service Distribution 2024
-            const serviceCtx2024 = document.getElementById('serviceChart2024').getContext('2d');
-            new Chart(serviceCtx2024, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Prenatal Visits', 'Postpartum Care', 'Mental Health', 'Education'],
-                    datasets: [{
-                        data: [45, 25, 20, 10],
-                        backgroundColor: [
-                            '#1e3a8a',
-                            '#7c3aed',
-                            '#a855f7',
-                            '#c084fc'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
+            // Service Distribution Charts - 2024
+            const serviceCtx2024 = document.getElementById('serviceChart2024');
+            if (serviceCtx2024) {
+                new Chart(serviceCtx2024.getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Prenatal Visits', 'Postpartum Care', 'Doula Support', 'Mental Health', 'Education'],
+                        datasets: [{
+                            data: [45, 32, 28, 15, 12],
+                            backgroundColor: [
+                                '#1e3a8a',
+                                '#40E0D0',
+                                '#2563eb',
+                                '#3b82f6',
+                                '#60a5fa'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: true,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            },
+                            title: {
+                                display: true,
+                                text: '2024 Service Distribution'
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
 
-            // Reports Charts - Service Distribution 2025
-            const serviceCtx2025 = document.getElementById('serviceChart2025').getContext('2d');
-            new Chart(serviceCtx2025, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Prenatal Visits', 'Postpartum Care', 'Mental Health', 'Education'],
-                    datasets: [{
-                        data: [50, 28, 22, 12],
-                        backgroundColor: [
-                            '#1e3a8a',
-                            '#7c3aed',
-                            '#a855f7',
-                            '#c084fc'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
+            // Service Distribution Charts - 2025
+            const serviceCtx2025 = document.getElementById('serviceChart2025');
+            if (serviceCtx2025) {
+                new Chart(serviceCtx2025.getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ['Prenatal Visits', 'Postpartum Care', 'Doula Support', 'Mental Health', 'Education'],
+                        datasets: [{
+                            data: [52, 38, 35, 18, 15],
+                            backgroundColor: [
+                                '#1e3a8a',
+                                '#40E0D0',
+                                '#2563eb',
+                                '#3b82f6',
+                                '#60a5fa'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#fff'
+                        }]
+                    },
+                    options: {
+                        responsive: false,
+                        maintainAspectRatio: true,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            },
+                            title: {
+                                display: true,
+                                text: '2025 Service Distribution'
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
+
+
 
             // Initialize table displays
             updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'id', type: 'text' },
                 { key: 'name', type: 'text' },
                 { key: 'dueDate', type: 'text' },
-                { key: 'enrollmentDate', type: 'text' },
-                { key: 'mentalHealthScore', type: 'text' },
+                { key: 'languages', type: 'text' },
+                { key: 'riskLevel', type: 'text' },
+                { key: 'pregnancyType', type: 'text' },
                 { key: 'status', type: 'status' },
-                { key: 'action', type: 'action', text: 'Update Status' }
+                { key: 'actions', type: 'clientActions' }
             ]);
             
             updateTableDisplay('volunteerTableBody', dashboardData.volunteers, [
+                { key: 'id', type: 'text' },
                 { key: 'name', type: 'text' },
                 { key: 'role', type: 'text' },
-                { key: 'email', type: 'text' },
                 { key: 'hoursContributed', type: 'text' },
+                { key: 'email', type: 'text' },
+                { key: 'phone', type: 'text' },
                 { key: 'status', type: 'status' },
                 { key: 'action', type: 'action', text: 'Update Status' }
             ]);
             
             updateTableDisplay('donationTableBody', dashboardData.donations, [
+                { key: 'id', type: 'text' },
                 { key: 'donorName', type: 'text' },
                 { key: 'amount', type: 'text' },
                 { key: 'type', type: 'text' },
@@ -2742,6 +4015,7 @@
             ]);
             
             updateTableDisplay('expenseTableBody', dashboardData.expenses, [
+                { key: 'id', type: 'text' },
                 { key: 'description', type: 'text' },
                 { key: 'amount', type: 'text' },
                 { key: 'category', type: 'text' },
@@ -2762,25 +4036,24 @@
 
         // Global data storage
         let dashboardData = {
-            clients: [
-                { name: 'Sarah Johnson', dueDate: '2024-08-15', enrollmentDate: '2024-01-10', mentalHealthScore: 8, status: 'Active' },
-                { name: 'Maria Rodriguez', dueDate: '2024-09-20', enrollmentDate: '2024-01-05', mentalHealthScore: 7, status: 'Active' },
-                { name: 'Jennifer Smith', dueDate: '2024-07-10', enrollmentDate: '2023-12-15', mentalHealthScore: 9, status: 'Completed' }
+                        clients: [
+                { id: 1001, name: 'Sarah Johnson', dueDate: '2025-08-15', languages: 'English', riskLevel: 'Low', pregnancyType: 'Singleton', status: 'Active' },
+                { id: 1002, name: 'Maria Rodriguez', dueDate: '2025-09-20', languages: 'Spanish, English', riskLevel: 'Medium', pregnancyType: 'Singleton', status: 'Active' },
+                { id: 1003, name: 'Jennifer Smith', dueDate: '2025-07-10', languages: 'English', riskLevel: 'High', pregnancyType: 'Singleton', status: 'Completed' },
+                { id: 1004, name: 'Jessica Martinez', dueDate: '2025-11-15', languages: 'Spanish', riskLevel: 'Low', pregnancyType: 'Singleton', status: 'Unassigned' },
+                { id: 1005, name: 'Rachel Green', dueDate: '2025-12-01', languages: 'English', riskLevel: 'Medium', pregnancyType: 'Twins', status: 'Unassigned' },
+                { id: 1006, name: 'Sofia Patel', dueDate: '2025-10-20', languages: 'English, Hindi', riskLevel: 'High', pregnancyType: 'High-risk', status: 'Unassigned' }
             ],
-            volunteers: [
-                { name: 'Dr. Emily Chen', email: 'emily@mamatoto.org', role: 'Doula', hoursContributed: 45.5, status: 'Active' },
-                { name: 'Nurse Sarah Williams', email: 'sarah@mamatoto.org', role: 'Doula', hoursContributed: 32.0, status: 'Active' },
-                { name: 'Maria Garcia', email: 'maria@mamatoto.org', role: 'Support', hoursContributed: 28.5, status: 'Active' }
-            ],
+
             donations: [
-                { donorName: 'Community Foundation', amount: 5000.0, type: 'Monetary', date: '2024-01-15', notes: 'General program support' },
-                { donorName: 'Anonymous Donor', amount: 2500.0, type: 'Monetary', date: '2024-01-10', notes: 'Maternal health initiative' },
-                { donorName: 'Local Hospital', amount: 1000.0, type: 'In-Kind', date: '2024-01-08', notes: 'Medical supplies' }
+                { id: 2001, donorName: 'Community Foundation', amount: 5000.0, type: 'Monetary', date: '2024-01-15', notes: 'General program support' },
+                { id: 2002, donorName: 'Anonymous Donor', amount: 2500.0, type: 'Monetary', date: '2024-01-10', notes: 'Maternal health initiative' },
+                { id: 2003, donorName: 'Local Hospital', amount: 1000.0, type: 'In-Kind', date: '2024-01-08', notes: 'Medical supplies' }
             ],
             expenses: [
-                { description: 'Program materials', amount: 1200.0, category: 'Program', date: '2024-01-12', approvedBy: 'Dr. Emily Chen' },
-                { description: 'Office supplies', amount: 300.0, category: 'Administrative', date: '2024-01-10', approvedBy: 'Lisa Johnson' },
-                { description: 'Training workshop', amount: 800.0, category: 'Program', date: '2024-01-08', approvedBy: 'Dr. Emily Chen' }
+                { id: 4001, description: 'Program materials', amount: 1200.0, category: 'Program', date: '2024-01-12', approvedBy: 'Dr. Emily Chen' },
+                { id: 4002, description: 'Office supplies', amount: 300.0, category: 'Administrative', date: '2024-01-10', approvedBy: 'Lisa Johnson' },
+                { id: 4003, description: 'Training workshop', amount: 800.0, category: 'Program', date: '2024-01-08', approvedBy: 'Dr. Emily Chen' }
             ],
             tasks: [
                 { title: 'Follow up with Sarah J.', assignedTo: 'Dr. Emily Chen', priority: 'High', dueDate: '2024-01-20', status: 'In Progress' },
@@ -2805,8 +4078,7 @@
                         if (col.text === 'Update Status') {
                             if (tableId === 'clientTableBody') {
                                 cell.innerHTML = `<button class="btn" onclick="updateClientStatus(${index})">${col.text}</button>`;
-                            } else if (tableId === 'volunteerTableBody') {
-                                cell.innerHTML = `<button class="btn" onclick="updateVolunteerStatus(${index})">${col.text}</button>`;
+
                             } else if (tableId === 'taskTableBody') {
                                 cell.innerHTML = `<button class="btn" onclick="updateTaskStatus(${index})">${col.text}</button>`;
                             } else {
@@ -2815,6 +4087,12 @@
                         } else {
                             cell.innerHTML = `<button class="btn">${col.text}</button>`;
                         }
+                    } else if (col.type === 'clientActions') {
+                        // Special handling for client table actions
+                        cell.innerHTML = `
+                            <button class="btn btn-sm" onclick="updateClientStatus(${index})">Update Status</button>
+                            <button class="btn btn-sm" onclick="editClient(${index})">Edit</button>
+                        `;
                     } else {
                         cell.textContent = item[col.key];
                     }
@@ -2857,24 +4135,243 @@
             const client = dashboardData.clients[clientIndex];
             const currentStatus = client.status;
             
-            // Toggle between Active and Completed
-            const newStatus = currentStatus === 'Active' ? 'Completed' : 'Active';
+            // Cycle through statuses: Unassigned -> Active -> Completed -> Unassigned
+            let newStatus;
+            if (currentStatus === 'Unassigned') {
+                newStatus = 'Active';
+            } else if (currentStatus === 'Active') {
+                newStatus = 'Completed';
+            } else {
+                newStatus = 'Unassigned';
+            }
             
             // Update the client status
             client.status = newStatus;
             
-            // Update the table display
+            // Update the table display with action buttons
             updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'id', type: 'text' },
                 { key: 'name', type: 'text' },
                 { key: 'dueDate', type: 'text' },
-                { key: 'enrollmentDate', type: 'text' },
-                { key: 'mentalHealthScore', type: 'text' },
+                { key: 'languages', type: 'text' },
+                { key: 'riskLevel', type: 'text' },
+                { key: 'pregnancyType', type: 'text' },
                 { key: 'status', type: 'status' },
-                { key: 'action', type: 'action', text: 'Update Status' }
+                { key: 'actions', type: 'clientActions' }
             ]);
+            
+            // Refresh unassigned clients if status changed to/from Unassigned
+            if (currentStatus === 'Unassigned' || newStatus === 'Unassigned') {
+                refreshUnassignedClients();
+                updateCurrentAssignmentsTable();
+                updateDoulaDirectoryTable();
+            }
             
             // Show confirmation message
             alert(`Client "${client.name}" status updated from ${currentStatus} to ${newStatus}`);
+        }
+
+        // Function to edit client
+        function editClient(clientIndex) {
+            console.log('editClient called with index:', clientIndex);
+            const client = dashboardData.clients[clientIndex];
+            console.log('Client data:', client);
+            
+            // Populate the edit form with current client data
+            document.getElementById('editClientName').value = client.name;
+            document.getElementById('editDueDate').value = client.dueDate;
+            document.getElementById('editPregnancyRisk').value = client.riskLevel;
+            document.getElementById('editPregnancyType').value = client.pregnancyType;
+            document.getElementById('editClientStatus').value = client.status;
+            document.getElementById('editClientNotes').value = client.notes || '';
+            
+            // Set languages (handle multiple selection)
+            const languageSelect = document.getElementById('editClientLanguages');
+            const languages = client.languages ? client.languages.split(', ') : [];
+            
+            // Clear previous selections
+            Array.from(languageSelect.options).forEach(option => {
+                option.selected = languages.includes(option.value);
+            });
+            
+            // Store the client index for the save function
+            document.getElementById('editClientForm').setAttribute('data-client-index', clientIndex);
+            
+            // Show the modal
+            const modal = document.getElementById('editClientModal');
+            modal.style.display = 'block';
+            console.log('Modal displayed:', modal.style.display);
+            
+            // Check if form and buttons exist
+            const form = document.getElementById('editClientForm');
+            const saveButton = form.querySelector('button[type="submit"]');
+            console.log('Form found:', !!form);
+            console.log('Save button found:', !!saveButton);
+        }
+
+        // Function to close edit modal
+        function closeEditModal() {
+            document.getElementById('editClientModal').style.display = 'none';
+        }
+
+        // Function to save edited client
+        function saveEditedClient(e) {
+            console.log('saveEditedClient called');
+            e.preventDefault();
+            
+            const clientIndex = parseInt(document.getElementById('editClientForm').getAttribute('data-client-index'));
+            const client = dashboardData.clients[clientIndex];
+            
+            // Get form values
+            const updatedClient = {
+                name: document.getElementById('editClientName').value,
+                dueDate: document.getElementById('editDueDate').value,
+                languages: Array.from(document.getElementById('editClientLanguages').selectedOptions).map(option => option.value).join(', '),
+                riskLevel: document.getElementById('editPregnancyRisk').value,
+                pregnancyType: document.getElementById('editPregnancyType').value,
+                status: document.getElementById('editClientStatus').value,
+                notes: document.getElementById('editClientNotes').value,
+                enrollmentDate: client.enrollmentDate // Keep original enrollment date
+            };
+            
+            // Update the client data
+            dashboardData.clients[clientIndex] = updatedClient;
+            
+            // Update the sample clients array if this client exists there
+            const sampleClientIndex = sampleClients.findIndex(sc => sc.name === client.name);
+            if (sampleClientIndex !== -1) {
+                sampleClients[sampleClientIndex] = {
+                    ...sampleClients[sampleClientIndex],
+                    name: updatedClient.name,
+                    dueDate: updatedClient.dueDate,
+                    language: updatedClient.languages,
+                    riskLevel: updatedClient.riskLevel,
+                    pregnancyType: updatedClient.pregnancyType
+                };
+            }
+            
+            // Update the table display with action buttons
+            updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'name', type: 'text' },
+                { key: 'dueDate', type: 'text' },
+                { key: 'languages', type: 'text' },
+                { key: 'riskLevel', type: 'text' },
+                { key: 'pregnancyType', type: 'text' },
+                { key: 'status', type: 'status' },
+                { key: 'actions', type: 'clientActions' }
+            ]);
+            
+            // Refresh unassigned clients if needed
+            refreshUnassignedClients();
+            
+            // Close the modal
+            closeEditModal();
+            
+            // Show success message
+            alert(`Client "${updatedClient.name}" information updated successfully!`);
+        }
+
+        // Function to synchronize client data between dashboardData and sampleClients
+        function synchronizeClientData(originalClient, updatedClient) {
+            // Update in sampleClients array
+            const sampleClientIndex = sampleClients.findIndex(sc => sc.name === originalClient.name);
+            if (sampleClientIndex !== -1) {
+                sampleClients[sampleClientIndex] = {
+                    ...sampleClients[sampleClientIndex],
+                    name: updatedClient.name,
+                    dueDate: updatedClient.dueDate,
+                    language: updatedClient.languages,
+                    riskLevel: updatedClient.riskLevel,
+                    pregnancyType: updatedClient.pregnancyType
+                };
+            }
+            
+            // If client name was changed, also update any references
+            if (updatedClient.name !== originalClient.name) {
+                // Update doula assignments if this client is assigned
+                doulaDirectory.forEach(doula => {
+                    if (doula.currentAssignments) {
+                        const assignmentIndex = doula.currentAssignments.findIndex(assignment => 
+                            assignment.clientName === originalClient.name
+                        );
+                        if (assignmentIndex !== -1) {
+                            doula.currentAssignments[assignmentIndex].clientName = updatedClient.name;
+                        }
+                    }
+                });
+            }
+            
+            // Refresh all related displays
+            refreshUnassignedClients();
+            updateCurrentAssignmentsTable();
+            updateDoulaDirectoryTable();
+            
+            // Update the table display with action buttons
+            updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'name', type: 'text' },
+                { key: 'dueDate', type: 'text' },
+                { key: 'languages', type: 'text' },
+                { key: 'riskLevel', type: 'text' },
+                { key: 'pregnancyType', type: 'text' },
+                { key: 'status', type: 'status' },
+                { key: 'actions', type: 'clientActions' }
+            ]);
+        }
+
+        // Manual save function as fallback
+        function saveEditedClientManual() {
+            console.log('saveEditedClientManual called');
+            
+            const clientIndex = parseInt(document.getElementById('editClientForm').getAttribute('data-client-index'));
+            const client = dashboardData.clients[clientIndex];
+            
+            // Get form values
+            const updatedClient = {
+                name: document.getElementById('editClientName').value,
+                dueDate: document.getElementById('editDueDate').value,
+                languages: Array.from(document.getElementById('editClientLanguages').selectedOptions).map(option => option.value).join(', '),
+                riskLevel: document.getElementById('editPregnancyRisk').value,
+                pregnancyType: document.getElementById('editPregnancyType').value,
+                status: document.getElementById('editClientStatus').value,
+                notes: document.getElementById('editClientNotes').value,
+                enrollmentDate: client.enrollmentDate // Keep original enrollment date
+            };
+            
+            // Update the client data
+            dashboardData.clients[clientIndex] = updatedClient;
+            
+            // Update the sample clients array if this client exists there
+            const sampleClientIndex = sampleClients.findIndex(sc => sc.name === client.name);
+            if (sampleClientIndex !== -1) {
+                sampleClients[sampleClientIndex] = {
+                    ...sampleClients[sampleClientIndex],
+                    name: updatedClient.name,
+                    dueDate: updatedClient.dueDate,
+                    language: updatedClient.languages,
+                    riskLevel: updatedClient.riskLevel,
+                    pregnancyType: updatedClient.pregnancyType
+                };
+            }
+            
+            // Update the table display with action buttons
+            updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'name', type: 'text' },
+                { key: 'dueDate', type: 'text' },
+                { key: 'languages', type: 'text' },
+                { key: 'riskLevel', type: 'text' },
+                { key: 'pregnancyType', type: 'text' },
+                { key: 'status', type: 'status' },
+                { key: 'actions', type: 'clientActions' }
+            ]);
+            
+            // Refresh unassigned clients if needed
+            refreshUnassignedClients();
+            
+            // Close the modal
+            closeEditModal();
+            
+            // Show success message
+            alert(`Client "${updatedClient.name}" information updated successfully!`);
         }
 
         // Function to update volunteer status
@@ -2890,10 +4387,12 @@
             
             // Update the table display
             updateTableDisplay('volunteerTableBody', dashboardData.volunteers, [
+                { key: 'id', type: 'text' },
                 { key: 'name', type: 'text' },
                 { key: 'role', type: 'text' },
-                { key: 'email', type: 'text' },
                 { key: 'hoursContributed', type: 'text' },
+                { key: 'email', type: 'text' },
+                { key: 'phone', type: 'text' },
                 { key: 'status', type: 'status' },
                 { key: 'action', type: 'action', text: 'Update Status' }
             ]);
@@ -2912,13 +4411,7 @@
                 }
             });
 
-            // Update volunteer count
-            const volunteerCount = dashboardData.volunteers.filter(v => v.role === 'Doula').length;
-            document.querySelectorAll('.metric-value').forEach(el => {
-                if (el.textContent === '15' && el.closest('.metric-card').querySelector('.metric-title').textContent.includes('Active Doulas (2024)')) {
-                    el.textContent = volunteerCount;
-                }
-            });
+
 
             // Update donation total
             const donationTotal = dashboardData.donations.reduce((sum, d) => sum + d.amount, 0);
@@ -2929,92 +4422,950 @@
             });
         }
 
+        // Smart Assignment System Functions
+        function viewDoulaDetails(doulaId) {
+            const doulas = [
+                {
+                    id: 1,
+                    name: 'Dr. Emily Chen',
+                    email: 'emily@mamatoto.org',
+                    specialties: 'High-risk, Twins',
+                    languages: 'English, Spanish',
+                    experience: '8 years',
+                    rating: 4.8,
+                    successRate: '92%',
+                    availability: 'Full-time',
+                    maxClients: 3,
+                    currentClients: 3
+                },
+                {
+                    id: 2,
+                    name: 'Nurse Sarah Williams',
+                    email: 'sarah@mamatoto.org',
+                    specialties: 'Singleton, General',
+                    languages: 'English',
+                    experience: '3 years',
+                    rating: 4.5,
+                    successRate: '93%',
+                    availability: 'Part-time',
+                    maxClients: 2,
+                    currentClients: 2
+                }
+            ];
+            
+            const doula = doulas.find(d => d.id === doulaId);
+            if (doula) {
+                alert(`Doula Details:\n\nName: ${doula.name}\nEmail: ${doula.email}\nSpecialties: ${doula.specialties}\nLanguages: ${doula.languages}\nExperience: ${doula.experience}\nRating: ${doula.rating}\nSuccess Rate: ${doula.successRate}\nAvailability: ${doula.availability}\nCurrent Clients: ${doula.currentClients}/${doula.maxClients}`);
+            }
+        }
+
+        function showSmartAssignment(doulaId) {
+            const doulas = [
+                { id: 1, name: 'Dr. Emily Chen' },
+                { id: 2, name: 'Nurse Sarah Williams' }
+            ];
+            
+            const doula = doulas.find(d => d.id === doulaId);
+            if (doula) {
+                alert(`Smart Assignment Interface for ${doula.name}\n\nThis would show available clients and their match scores with this doula.`);
+            }
+        }
+
+        // Sample client data for recommendations
+        const sampleClients = [
+            {
+                id: 1,
+                name: 'Sarah Johnson',
+                dueDate: '2025-08-15',
+                language: 'English',
+                riskLevel: 'Low',
+                pregnancyType: 'Singleton',
+                assigned: true
+            },
+            {
+                id: 2,
+                name: 'Maria Rodriguez',
+                dueDate: '2025-09-20',
+                language: 'Spanish, English',
+                riskLevel: 'Medium',
+                pregnancyType: 'Singleton',
+                assigned: true
+            },
+            {
+                id: 3,
+                name: 'Jennifer Smith',
+                dueDate: '2025-07-10',
+                language: 'English',
+                riskLevel: 'High',
+                pregnancyType: 'Singleton',
+                assigned: true
+            },
+            {
+                id: 4,
+                name: 'Amanda Davis',
+                dueDate: '2025-10-05',
+                language: 'English',
+                riskLevel: 'Low',
+                pregnancyType: 'Twins',
+                assigned: true
+            },
+            {
+                id: 5,
+                name: 'Lisa Thompson',
+                dueDate: '2025-06-25',
+                language: 'English',
+                riskLevel: 'Medium',
+                pregnancyType: 'Singleton',
+                assigned: true
+            },
+            {
+                id: 6,
+                name: 'Jessica Martinez',
+                dueDate: '2025-11-15',
+                language: 'Spanish',
+                riskLevel: 'Low',
+                pregnancyType: 'Singleton',
+                assigned: false
+            },
+            {
+                id: 7,
+                name: 'Rachel Green',
+                dueDate: '2025-12-01',
+                language: 'English',
+                riskLevel: 'Medium',
+                pregnancyType: 'Twins',
+                assigned: false
+            },
+            {
+                id: 8,
+                name: 'Sofia Patel',
+                dueDate: '2025-10-20',
+                language: 'English, Hindi',
+                riskLevel: 'High',
+                pregnancyType: 'High-risk',
+                assigned: false
+            }
+        ];
+
+        // Sample doula recommendations
+        const doulaRecommendations = [
+            {
+                id: 1,
+                name: 'Dr. Emily Chen',
+                languages: 'English, Spanish',
+                specialties: 'High-risk, Twins',
+                experience: '8 years',
+                rating: 4.8,
+                currentClients: 3,
+                maxClients: 3,
+                available: false
+            },
+            {
+                id: 2,
+                name: 'Nurse Sarah Williams',
+                languages: 'English',
+                specialties: 'Singleton, General',
+                experience: '3 years',
+                rating: 4.5,
+                currentClients: 2,
+                maxClients: 2,
+                available: false
+            }
+        ];
+
+        function populateUnassignedClients() {
+            const container = document.getElementById('unassignedClientsContainer');
+            if (!container) return;
+
+            // Only show truly unassigned clients
+            const unassignedClients = sampleClients.filter(client => !client.assigned);
+
+            // Update the unassigned clients metric
+            const unassignedMetric = document.querySelector('.metrics-grid .metric-card:nth-child(5) .metric-value');
+            if (unassignedMetric) {
+                unassignedMetric.textContent = unassignedClients.length;
+            }
+
+            container.innerHTML = '';
+
+            unassignedClients.forEach(client => {
+                const clientCard = document.createElement('div');
+                clientCard.className = 'client-recommendation-card';
+                
+                const recommendations = doulaRecommendations.map(doula => ({
+                    ...doula,
+                    score: calculateMatchScore(client, doula)
+                })).sort((a, b) => b.score - a.score);
+
+                clientCard.innerHTML = `
+                    <div class="client-header">
+                        <div class="client-name">${client.name}</div>
+                    </div>
+                    <div class="client-details">
+                        <div class="client-detail"><strong>Due Date:</strong> ${client.dueDate}</div>
+                        <div class="client-detail"><strong>Language:</strong> ${client.language}</div>
+                        <div class="client-detail"><strong>Risk Level:</strong> ${client.riskLevel}</div>
+                        <div class="client-detail"><strong>Pregnancy Type:</strong> ${client.pregnancyType}</div>
+                    </div>
+                    <div class="recommendations-grid">
+                        ${recommendations.map(rec => `
+                            <div class="recommendation-card ${rec.available ? 'available' : 'unavailable'}">
+                                <div class="recommendation-header">
+                                    <div class="recommendation-name">${rec.name}</div>
+                                    <div class="recommendation-score">${rec.score}</div>
+                                </div>
+                                <div class="recommendation-details">
+                                    <strong>Languages:</strong> ${rec.languages}<br>
+                                    <strong>Specialties:</strong> ${rec.specialties}<br>
+                                    <strong>Experience:</strong> ${rec.experience}<br>
+                                    <strong>Current:</strong> ${rec.currentClients}/${rec.maxClients} clients
+                                </div>
+                                <button class="smart-assign-btn" ${!rec.available ? 'disabled' : ''} onclick="performSmartAssignment(${client.id}, ${rec.id})">
+                                    ${rec.available ? '🧠 Smart Assign' : '🚫 At Capacity'}
+                                </button>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                container.appendChild(clientCard);
+            });
+        }
+
+        function calculateMatchScore(client, doula) {
+            let score = 0;
+            
+            // Language match (25 points)
+            if (client.language === 'English' && doula.languages.includes('English')) {
+                score += 25;
+            } else if (client.language === 'Spanish' && doula.languages.includes('Spanish')) {
+                score += 25;
+            }
+            
+            // Specialty match (20 points)
+            if (client.pregnancyType === 'High-risk' && doula.specialties.includes('High-risk')) {
+                score += 20;
+            } else if (client.pregnancyType === 'Twins' && doula.specialties.includes('Twins')) {
+                score += 20;
+            } else if (client.pregnancyType === 'Singleton' && doula.specialties.includes('Singleton')) {
+                score += 20;
+            } else if (doula.specialties.includes('General')) {
+                score += 14; // 70% of full points for general
+            }
+            
+            // Risk level match (15 points)
+            if (doula.specialties.includes('High-risk') || doula.specialties.includes('General')) {
+                score += 15;
+            }
+            
+            // Availability (15 points)
+            if (doula.available) {
+                score += 15;
+            }
+            
+            // Experience (10 points)
+            const experienceYears = parseInt(doula.experience);
+            if (experienceYears >= 5) {
+                score += 10;
+            } else if (experienceYears >= 2) {
+                score += 7;
+            } else {
+                score += 4;
+            }
+            
+            // Workload (10 points)
+            const remainingCapacity = doula.maxClients - doula.currentClients;
+            if (remainingCapacity > 0) {
+                score += (remainingCapacity / doula.maxClients) * 10;
+            }
+            
+            // Rating (5 points)
+            if (doula.rating >= 4.5) {
+                score += 5;
+            } else if (doula.rating >= 4.0) {
+                score += 4;
+            } else {
+                score += 3;
+            }
+            
+            return Math.round(score);
+        }
+
+        function performSmartAssignment(clientId, doulaId) {
+            const client = sampleClients.find(c => c.id === clientId);
+            const doula = doulaRecommendations.find(d => d.id === doulaId);
+            
+            if (client && doula) {
+                const score = calculateMatchScore(client, doula);
+                alert(`Smart Assignment Successful!\n\nClient: ${client.name}\nDoula: ${doula.name}\nMatch Score: ${score}/100\n\nThis assignment has been recorded in the system.`);
+                
+                // Mark client as assigned
+                client.assigned = true;
+                
+                // Update the doula's current client count
+                doula.currentClients++;
+                doula.available = doula.currentClients < doula.maxClients;
+                
+                // Update client status in dashboard data
+                const dashboardClient = dashboardData.clients.find(c => c.name === client.name);
+                if (dashboardClient) {
+                    dashboardClient.status = 'Active';
+                }
+                
+                // Update metrics
+                updateSmartAssignmentMetrics();
+                updateSmartAssignMetrics();
+                
+                // Refresh the display
+                populateUnassignedClients();
+                populateSmartUnassignedClients();
+            }
+        }
+
+        function updateSmartAssignmentMetrics() {
+            const assignedClients = sampleClients.filter(client => client.assigned);
+            const unassignedClients = sampleClients.filter(client => !client.assigned);
+            
+            // Update current assignments metric
+            const currentAssignmentsMetric = document.querySelector('.metrics-grid .metric-card:nth-child(2) .metric-value');
+            if (currentAssignmentsMetric) {
+                currentAssignmentsMetric.textContent = assignedClients.length;
+            }
+            
+            // Update unassigned clients metric
+            const unassignedMetric = document.querySelector('.metrics-grid .metric-card:nth-child(5) .metric-value');
+            if (unassignedMetric) {
+                unassignedMetric.textContent = unassignedClients.length;
+            }
+        }
+
+        // Initialize smart assignment system when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            populateUnassignedClients();
+            updateSmartAssignmentMetrics();
+            populateSmartAssignTab();
+        });
+
+        // Smart Assign Tab Functions
+        function populateSmartAssignTab() {
+            populateSmartUnassignedClients();
+            updateSmartAssignMetrics();
+        }
+
+        function populateSmartUnassignedClients() {
+            const container = document.getElementById('smartUnassignedClientsContainer');
+            if (!container) return;
+
+            const unassignedClients = sampleClients.filter(client => !client.assigned);
+            container.innerHTML = '';
+
+            unassignedClients.forEach(client => {
+                const clientCard = document.createElement('div');
+                clientCard.className = 'client-recommendation-card';
+                
+                const recommendations = doulaRecommendations.map(doula => ({
+                    ...doula,
+                    score: calculateMatchScore(client, doula),
+                    explanation: generateMatchExplanation(client, doula)
+                })).sort((a, b) => b.score - a.score);
+
+                clientCard.innerHTML = `
+                    <div class="client-info">
+                        <h4>${client.name}</h4>
+                        <p><strong>Due Date:</strong> ${client.dueDate}</p>
+                        <p><strong>Language:</strong> ${client.language}</p>
+                        <p><strong>Risk Level:</strong> ${client.riskLevel}</p>
+                        <p><strong>Pregnancy Type:</strong> ${client.pregnancyType}</p>
+                    </div>
+                    <div class="recommendations">
+                        <h5>Top Doula Recommendations:</h5>
+                        ${recommendations.slice(0, 3).map((rec, index) => `
+                            <div class="recommendation-card">
+                                <div class="recommendation-header">
+                                    <strong>${index + 1}. ${rec.name}</strong>
+                                    <span class="match-score">${rec.score}/100</span>
+                                </div>
+                                <div class="match-explanation">
+                                    <small>${rec.explanation}</small>
+                                </div>
+                                <div class="recommendation-actions">
+                                    <button class="btn btn-sm" onclick="performSmartAssignment(${client.id}, ${rec.id})" ${!rec.available ? 'disabled' : ''}>
+                                        ${rec.available ? 'Assign' : 'At Capacity'}
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                container.appendChild(clientCard);
+            });
+        }
+
+        function generateMatchExplanation(client, doula) {
+            let explanation = [];
+            
+            // Language match
+            if (doula.languages.includes(client.language)) {
+                explanation.push(`Perfect language match (${client.language})`);
+            } else if (doula.languages.includes('English') && client.language.includes('English')) {
+                explanation.push('English language compatibility');
+            } else {
+                explanation.push('Language mismatch - may need interpreter');
+            }
+            
+            // Risk level match
+            if (client.riskLevel === 'High' && doula.specialties.includes('High-risk')) {
+                explanation.push('High-risk specialist for high-risk client');
+            } else if (client.riskLevel === 'Low' && doula.specialties.includes('General')) {
+                explanation.push('General specialist suitable for low-risk case');
+            } else {
+                explanation.push(`${client.riskLevel} risk level handled by ${doula.specialties.includes('High-risk') ? 'high-risk' : 'general'} specialist`);
+            }
+            
+            // Experience match
+            const experienceYears = parseInt(doula.experience);
+            if (client.riskLevel === 'High' && experienceYears >= 5) {
+                explanation.push('High experience critical for complex case');
+            } else if (experienceYears >= 3) {
+                explanation.push('Experienced doula for standard case');
+            } else {
+                explanation.push('Newer doula - may need supervision');
+            }
+            
+            // Availability
+            if (doula.available) {
+                explanation.push('Currently available for new clients');
+            } else {
+                explanation.push('At capacity - not available');
+            }
+            
+            return explanation.join(' • ');
+        }
+
+        function updateSmartAssignMetrics() {
+            const assignedClients = sampleClients.filter(client => client.assigned);
+            const unassignedClients = sampleClients.filter(client => !client.assigned);
+            
+            // Update smart assign tab metrics
+            const smartActiveDoulas = document.getElementById('smartActiveDoulas');
+            const smartCurrentAssignments = document.getElementById('smartCurrentAssignments');
+            const smartUnassignedClients = document.getElementById('smartUnassignedClients');
+            
+            if (smartActiveDoulas) smartActiveDoulas.textContent = doulaRecommendations.length;
+            if (smartCurrentAssignments) smartCurrentAssignments.textContent = assignedClients.length;
+            if (smartUnassignedClients) smartUnassignedClients.textContent = unassignedClients.length;
+        }
+
+        function updateCurrentAssignmentsTable() {
+            const assignedClients = sampleClients.filter(client => client.assigned);
+            const tableBody = document.getElementById('currentAssignmentsTable');
+            
+            if (tableBody) {
+                // Clear existing rows except the first 3 (original assignments)
+                const rows = tableBody.querySelectorAll('tr');
+                for (let i = 3; i < rows.length; i++) {
+                    rows[i].remove();
+                }
+                
+                // Add new assignment rows
+                assignedClients.forEach(client => {
+                    if (client.assignedDoula && client.assignmentDate) {
+                        // Find the doula in the directory
+                        const doula = doulaDirectory.find(d => d.name === client.assignedDoula);
+                        
+                        if (doula) {
+                            const newRow = document.createElement('tr');
+                            newRow.innerHTML = `
+                                <td>
+                                    <strong>${client.name}</strong><br>
+                                    <small>Due: ${client.dueDate} | ${client.language} | ${client.riskLevel} | ${client.pregnancyType}</small>
+                                </td>
+                                <td>
+                                    <strong>${doula.name}</strong><br>
+                                    <small>Rating: ${doula.rating} | ${doula.experience} exp.</small>
+                                </td>
+                                <td>
+                                    <div class="capacity-bar">
+                                        <div class="capacity-fill ${doula.currentAssignments.length >= parseInt(doula.capacity.split('/')[1]) ? 'capacity-full' : 'capacity-available'}" style="width: ${(doula.currentAssignments.length / parseInt(doula.capacity.split('/')[1])) * 100}%"></div>
+                                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8rem; color: #333;">${doula.capacity}</span>
+                                    </div>
+                                </td>
+                                <td>${client.assignmentDate}</td>
+                                <td>
+                                    <small>
+                                        <strong>New Assignment:</strong> Client recently assigned<br>
+                                        <strong>Language:</strong> ${client.language} compatibility<br>
+                                        <strong>Risk Level:</strong> ${client.riskLevel} handled appropriately<br>
+                                        <strong>Status:</strong> Assignment confirmed
+                                    </small>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="completeAssignment('${client.id}')">Complete</button>
+                                    <button class="btn btn-sm" onclick="transferAssignment('${client.id}')">Transfer</button>
+                                </td>
+                            `;
+                            tableBody.appendChild(newRow);
+                        }
+                    }
+                });
+            }
+        }
+
+        function refreshUnassignedClients() {
+            const unassignedClients = sampleClients.filter(client => !client.assigned);
+            const container = document.querySelector('.client-recommendations-grid');
+            
+            if (container) {
+                // Remove all existing client cards
+                container.innerHTML = '';
+                
+                // Add remaining unassigned clients
+                unassignedClients.forEach(client => {
+                    const clientCard = document.createElement('div');
+                    clientCard.className = 'client-card';
+                    
+                    // Generate doula options dynamically
+                    const doulaOptions = doulaDirectory.map(doula => {
+                        const matchScore = calculateMatchScore(client, doula);
+                        return `<option value="${doula.name}">${doula.name} (${matchScore}% match)</option>`;
+                    }).join('');
+                    
+                    clientCard.innerHTML = `
+                        <div class="client-header">
+                            <h4>${client.name}</h4>
+                            <span class="status-badge status-pending">Unassigned</span>
+                        </div>
+                        <div class="client-details">
+                            <p><strong>Due Date:</strong> ${client.dueDate}</p>
+                            <p><strong>Language:</strong> ${client.language}</p>
+                            <p><strong>Risk Level:</strong> ${client.riskLevel}</p>
+                            <p><strong>Pregnancy Type:</strong> ${client.pregnancyType}</p>
+                        </div>
+                        <div class="recommendations">
+                            <h5>Top Doula Match:</h5>
+                            ${(() => {
+                                const topDoula = doulaDirectory.reduce((best, current) => {
+                                    const bestScore = calculateMatchScore(client, best);
+                                    const currentScore = calculateMatchScore(client, current);
+                                    return currentScore > bestScore ? current : best;
+                                });
+                                const matchScore = calculateMatchScore(client, topDoula);
+                                return `
+                                    <div class="match-item">
+                                        <span class="match-score">${matchScore}%</span>
+                                        <span class="match-name">${topDoula.name}</span>
+                                        <small>${topDoula.specialties} specialist</small>
+                                    </div>
+                                `;
+                            })()}
+                        </div>
+                        <div class="client-actions">
+                            <select class="btn btn-sm" onchange="assignClient('${client.name}', this.value)" style="margin-right: 10px;">
+                                <option value="">Select Doula...</option>
+                                ${doulaOptions}
+                            </select>
+                            <button class="btn btn-sm" onclick="viewClientDetails('${client.name}')">View Details</button>
+                        </div>
+                    `;
+                    container.appendChild(clientCard);
+                });
+                
+                // If no unassigned clients, show a message
+                if (unassignedClients.length === 0) {
+                    container.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 40px; background: #f8f9fa; border-radius: 12px; color: #6c757d;">
+                            <h3>🎉 All Clients Assigned!</h3>
+                            <p>Great job! All clients have been successfully assigned to doulas.</p>
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        // Global array to store doulas
+        let doulaDirectory = [
+            {
+                id: 1,
+                name: "Dr. Emily Chen",
+                email: "emily@mamatoto.org",
+                specialties: "High-risk, Twins",
+                languages: "English, Spanish",
+                riskLevel: "All",
+                experience: "8 years",
+                rating: "4.8",
+                successRate: "92%",
+                currentAssignments: ["Sarah Johnson", "Maria Rodriguez", "Jennifer Smith"],
+                capacity: "3/3",
+                availability: "Full-time",
+                status: "Active"
+            },
+            {
+                id: 2,
+                name: "Nurse Sarah Williams",
+                email: "sarah@mamatoto.org",
+                specialties: "Singleton, General",
+                languages: "English",
+                riskLevel: "Low, Medium",
+                experience: "3 years",
+                rating: "4.5",
+                successRate: "93%",
+                currentAssignments: [],
+                capacity: "0/2",
+                availability: "Part-time",
+                status: "Active"
+            }
+        ];
+
+        function addNewDoulaToDirectory(newApplication) {
+            // Create new doula object
+            const newDoula = {
+                id: doulaDirectory.length + 1,
+                name: newApplication.name,
+                email: newApplication.email,
+                specialties: newApplication.specialties,
+                languages: newApplication.languages,
+                riskLevel: newApplication.riskLevel,
+                experience: newApplication.experience + " years",
+                rating: "4.0", // Default rating for new doulas
+                successRate: "95%", // Default success rate
+                currentAssignments: [],
+                capacity: `0/${newApplication.maxClients}`,
+                availability: newApplication.availability,
+                status: "Active"
+            };
+            
+            // Add to directory
+            doulaDirectory.push(newDoula);
+            
+            // Update the doula directory table
+            updateDoulaDirectoryTable();
+            
+            // Refresh unassigned clients to include new doula in assignment options
+            refreshUnassignedClients();
+        }
+
+        function updateDoulaDirectoryTable() {
+            const tableBody = document.getElementById('doulaDirectoryTableBody');
+            
+            if (tableBody) {
+                // Clear existing rows
+                tableBody.innerHTML = '';
+                
+                // Add all doulas
+                doulaDirectory.forEach(doula => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${doula.id}</td>
+                        <td>
+                            <strong>${doula.name}</strong><br>
+                            <small>${doula.email}</small>
+                        </td>
+                        <td>
+                            <strong>Specialties:</strong> ${doula.specialties}<br>
+                            <strong>Languages:</strong> ${doula.languages}<br>
+                            <strong>Risk Level:</strong> ${doula.riskLevel}
+                        </td>
+                        <td>
+                            <strong>Experience:</strong> ${doula.experience}<br>
+                            <strong>Rating:</strong> <span class="rating-badge rating-${doula.rating >= 4.5 ? 'excellent' : 'good'}">${doula.rating}</span><br>
+                            <strong>Success Rate:</strong> ${doula.successRate}
+                        </td>
+                        <td>
+                            ${doula.currentAssignments.length > 0 ? 
+                                doula.currentAssignments.map(client => `<div class="assignment-badge">${client}</div>`).join('') :
+                                '<small>No current assignments</small>'
+                            }
+                        </td>
+                        <td>
+                            <div class="capacity-bar">
+                                <div class="capacity-fill ${doula.currentAssignments.length >= parseInt(doula.capacity.split('/')[1]) ? 'capacity-full' : 'capacity-available'}" style="width: ${(doula.currentAssignments.length / parseInt(doula.capacity.split('/')[1])) * 100}%">${doula.capacity}</div>
+                            </div>
+                            <small>${doula.availability} availability</small>
+                        </td>
+                        <td><span class="status-badge status-active">${doula.status}</span></td>
+                        <td>
+                            <button class="btn btn-sm" onclick="viewDoulaDetails(${doula.id})">View</button>
+                            <button class="btn btn-sm" onclick="editDoula(${doula.id})">Edit</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        }
+
+        function updateDoulaMetrics() {
+            // Update smart assign metrics
+            const smartActiveDoulas = document.getElementById('smartActiveDoulas');
+            if (smartActiveDoulas) {
+                smartActiveDoulas.textContent = doulaDirectory.length;
+            }
+            
+            // Update pending applications count
+            const smartPendingApplications = document.getElementById('smartPendingApplications');
+            if (smartPendingApplications) {
+                smartPendingApplications.textContent = "0"; // Since we're auto-approving
+            }
+            
+            // Refresh unassigned clients to include any new doulas
+            refreshUnassignedClients();
+        }
+
+        function calculateMatchScore(client, doula) {
+            let score = 50; // Base score
+            
+            // Language match (20 points)
+            if (doula.languages.includes(client.language)) {
+                score += 20;
+            } else if (doula.languages.includes('English') && client.language.includes('English')) {
+                score += 10;
+            }
+            
+            // Risk level match (20 points)
+            if (doula.riskLevel === 'All' || doula.riskLevel.includes(client.riskLevel)) {
+                score += 20;
+            } else if (client.riskLevel === 'Low' && doula.riskLevel.includes('Low')) {
+                score += 15;
+            } else if (client.riskLevel === 'High' && doula.riskLevel.includes('High')) {
+                score += 15;
+            }
+            
+            // Experience match (10 points)
+            const experienceYears = parseInt(doula.experience);
+            if (client.riskLevel === 'High' && experienceYears >= 5) {
+                score += 10;
+            } else if (experienceYears >= 3) {
+                score += 5;
+            }
+            
+            // Availability (10 points)
+            const currentLoad = doula.currentAssignments.length;
+            const maxCapacity = parseInt(doula.capacity.split('/')[1]);
+            if (currentLoad < maxCapacity) {
+                score += 10;
+            } else {
+                score -= 20; // Penalty for being at capacity
+            }
+            
+            return Math.max(0, Math.min(100, score));
+        }
+
+
+
+        // Doula Application Form Handler
+        document.getElementById('doulaApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newApplication = {
+                name: document.getElementById('applicantName').value,
+                email: document.getElementById('applicantEmail').value,
+                phone: document.getElementById('applicantPhone').value,
+                languages: Array.from(document.getElementById('applicantLanguages').selectedOptions).map(option => option.value).join(', '),
+                specialties: Array.from(document.getElementById('applicantSpecialties').selectedOptions).map(option => option.value).join(', '),
+                riskLevel: document.getElementById('applicantRiskLevel').value,
+                riskType: document.getElementById('applicantRiskType').value,
+                experience: document.getElementById('applicantExperience').value,
+                certification: document.getElementById('applicantCertification').value,
+                maxClients: document.getElementById('applicantMaxClients').value,
+                availability: document.getElementById('applicantAvailability').value,
+                motivation: document.getElementById('applicantMotivation').value,
+                status: 'Active'
+            };
+            
+            // Add the new doula to the directory
+            addNewDoulaToDirectory(newApplication);
+            
+            // Update metrics
+            updateDoulaMetrics();
+            
+            // Show success message
+            alert(`Thank you for your application, ${newApplication.name}!\n\nYou have been successfully added to our doula directory. We will contact you at ${newApplication.email} within 3-5 business days to discuss next steps.\n\nApplication Details:\n- Languages: ${newApplication.languages}\n- Specialties: ${newApplication.specialties}\n- Risk Level: ${newApplication.riskLevel}\n- Risk Types: ${newApplication.riskType}\n- Experience: ${newApplication.experience} years\n- Certification: ${newApplication.certification}`);
+            
+            this.reset();
+        });
+
+        // Client Assignment Functions
+        function assignClient(clientName, doulaName) {
+            // Don't proceed if no doula is selected
+            if (!doulaName || doulaName === "") {
+                return;
+            }
+            
+            // Find the client in the sample data
+            const clientIndex = sampleClients.findIndex(client => client.name === clientName);
+            if (clientIndex !== -1) {
+                // Mark client as assigned
+                sampleClients[clientIndex].assigned = true;
+                sampleClients[clientIndex].assignedDoula = doulaName;
+                sampleClients[clientIndex].assignmentDate = new Date().toISOString().split('T')[0];
+                
+                // Update the doula's current assignments
+                const doula = doulaDirectory.find(d => d.name === doulaName);
+                if (doula) {
+                    doula.currentAssignments.push(clientName);
+                    // Update the doula's capacity display
+                    doula.capacity = `${doula.currentAssignments.length}/${doula.capacity.split('/')[1]}`;
+                }
+                
+                // Update the UI by removing the client card
+                const clientCard = event.target.closest('.client-card');
+                if (clientCard) {
+                    clientCard.style.opacity = '0.5';
+                    clientCard.style.pointerEvents = 'none';
+                    
+                    // Add a success message
+                    const successMsg = document.createElement('div');
+                    successMsg.innerHTML = `<div style="background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-top: 10px; text-align: center; font-weight: bold;">✓ Assigned to ${doulaName}</div>`;
+                    clientCard.appendChild(successMsg);
+                }
+                
+                // Update metrics
+                updateSmartAssignMetrics();
+                
+                // Update the current assignments table
+                updateCurrentAssignmentsTable();
+                
+                // Update the doula directory table to reflect new assignments
+                updateDoulaDirectoryTable();
+                
+                // Refresh the unassigned clients display
+                refreshUnassignedClients();
+                
+                alert(`Client ${clientName} has been successfully assigned to ${doulaName}!`);
+            } else {
+                alert(`Client ${clientName} not found in the system.`);
+            }
+        }
+
+        function viewClientDetails(clientName) {
+            alert(`Viewing detailed profile for ${clientName}.\n\nThis would open a detailed client profile with full medical history, preferences, and assignment history.`);
+            // In a real application, this would open a detailed client profile modal
+        }
+
+        // Doula Profile Functions
+        function viewDoulaProfile(doulaId) {
+            const doula = doulaRecommendations.find(d => d.id === doulaId);
+            if (doula) {
+                alert(`Doula Profile: ${doula.name}\n\nLanguages: ${doula.languages}\nSpecialties: ${doula.specialties}\nExperience: ${doula.experience}\nRating: ${doula.rating}/5\nCurrent Clients: ${doula.currentClients}/${doula.maxClients}\nAvailability: ${doula.available ? 'Available' : 'At Capacity'}`);
+            }
+        }
+
+        function editDoulaProfile(doulaId) {
+            alert(`Edit profile functionality for doula ${doulaId} would open a form here.`);
+        }
+
+        // Assignment management functions
+        function completeAssignment(assignmentId) {
+            if (confirm('Mark this assignment as completed?')) {
+                alert(`Assignment ${assignmentId} marked as completed successfully!`);
+                // In a real implementation, this would update the database
+            }
+        }
+
+        function transferAssignment(assignmentId) {
+            const newDoula = prompt('Enter the ID of the new doula for this client:');
+            if (newDoula) {
+                alert(`Client transferred to doula ${newDoula} successfully!`);
+                // In a real implementation, this would update the database
+            }
+        }
+
         // Form submissions with actual functionality
         document.getElementById('clientForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const newClient = {
+                id: dashboardData.clients.length + 1001, // Generate next ID
                 name: document.getElementById('clientName').value,
                 dueDate: document.getElementById('dueDate').value,
                 enrollmentDate: new Date().toISOString().split('T')[0],
-                mentalHealthScore: parseInt(document.getElementById('mentalHealthScore').value) || 0,
-                status: 'Active'
+                status: 'Unassigned'
             };
             
+            // Add to dashboard data
             dashboardData.clients.push(newClient);
             
-            // Update table display
+            // Get selected language
+            const languageSelect = document.getElementById('clientLanguages');
+            const language = languageSelect.value || 'English';
+            
+            // Get pregnancy details
+            const riskLevel = document.getElementById('pregnancyRisk').value || 'Low';
+            const pregnancyType = document.getElementById('pregnancyType').value || 'Singleton';
+            
+            // Add to sample clients for smart assignment
+            const newSampleClient = {
+                id: sampleClients.length + 1,
+                name: newClient.name,
+                dueDate: newClient.dueDate,
+                language: language,
+                riskLevel: riskLevel,
+                pregnancyType: pregnancyType,
+                assigned: false
+            };
+            sampleClients.push(newSampleClient);
+            
+            // Add the new fields to the client data
+            newClient.languages = language;
+            newClient.riskLevel = riskLevel;
+            newClient.pregnancyType = pregnancyType;
+            
+            // Update table display with action buttons
             updateTableDisplay('clientTableBody', dashboardData.clients, [
+                { key: 'id', type: 'text' },
                 { key: 'name', type: 'text' },
                 { key: 'dueDate', type: 'text' },
-                { key: 'enrollmentDate', type: 'text' },
-                { key: 'mentalHealthScore', type: 'text' },
-                { key: 'status', type: 'status' }
+                { key: 'languages', type: 'text' },
+                { key: 'riskLevel', type: 'text' },
+                { key: 'pregnancyType', type: 'text' },
+                { key: 'status', type: 'status' },
+                { key: 'actions', type: 'clientActions' }
             ]);
             
+            // Refresh unassigned clients with new client
+            populateUnassignedClients();
+            populateSmartUnassignedClients();
+            refreshUnassignedClients();
+            updateCurrentAssignmentsTable();
+            updateDoulaDirectoryTable();
+            
             updateDashboardMetrics();
-            alert('Client added successfully!');
+            updateSmartAssignMetrics();
+            alert(`Client ${newClient.name} added successfully! They have been added to both the Client Services log and the unassigned clients list with smart doula recommendations.`);
             this.reset();
         });
 
-        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+        document.getElementById('doulaForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const newVolunteer = {
-                name: document.getElementById('volunteerName').value,
-                email: document.getElementById('volunteerEmail').value,
-                role: document.getElementById('volunteerRole').value,
+            const newDoula = {
+                name: document.getElementById('doulaName').value,
+                email: document.getElementById('doulaEmail').value,
+                phone: document.getElementById('doulaPhone').value,
+                languages: document.getElementById('doulaLanguages').value,
+                specialties: document.getElementById('doulaSpecialties').value,
+                experience: document.getElementById('doulaExperience').value,
+                maxClients: document.getElementById('doulaMaxClients').value,
+                availability: document.getElementById('doulaAvailability').value,
                 hoursContributed: 0,
                 status: 'Active'
             };
             
-            dashboardData.volunteers.push(newVolunteer);
-            
-            // Update table display
-            updateTableDisplay('volunteerTableBody', dashboardData.volunteers, [
-                { key: 'name', type: 'text' },
-                { key: 'role', type: 'text' },
-                { key: 'email', type: 'text' },
-                { key: 'hoursContributed', type: 'text' },
-                { key: 'status', type: 'status' }
-            ]);
+            // Add to doula directory instead of volunteer list
+            addNewDoulaToDirectory(newDoula);
             
             updateDashboardMetrics();
-            alert('Volunteer added successfully!');
+            alert('Doula added successfully!');
             this.reset();
         });
 
-        document.getElementById('donationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const newDonation = {
-                donorName: document.getElementById('donorName').value,
-                amount: parseFloat(document.getElementById('donationAmount').value),
-                type: document.getElementById('donationType').value,
-                date: new Date().toISOString().split('T')[0],
-                notes: document.getElementById('donationNotes').value
-            };
-            
-            dashboardData.donations.push(newDonation);
-            
-            // Update table display
-            updateTableDisplay('donationTableBody', dashboardData.donations, [
-                { key: 'donorName', type: 'text' },
-                { key: 'amount', type: 'text' },
-                { key: 'type', type: 'text' },
-                { key: 'date', type: 'text' },
-                { key: 'notes', type: 'text' }
-            ]);
-            
-            updateDashboardMetrics();
-            alert('Donation recorded successfully!');
-            this.reset();
-        });
+
 
         document.getElementById('expenseForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const newExpense = {
+                id: dashboardData.expenses.length + 4001, // Generate next ID
                 description: document.getElementById('expenseDescription').value,
                 amount: parseFloat(document.getElementById('expenseAmount').value),
                 category: document.getElementById('expenseCategory').value,
@@ -3026,6 +5377,7 @@
             
             // Update table display
             updateTableDisplay('expenseTableBody', dashboardData.expenses, [
+                { key: 'id', type: 'text' },
                 { key: 'description', type: 'text' },
                 { key: 'amount', type: 'text' },
                 { key: 'category', type: 'text' },
@@ -3065,6 +5417,243 @@
             
             alert('Task created successfully!');
             this.reset();
+        });
+
+        // Initialize unassigned clients with dynamic doula options
+        function initializeUnassignedClients() {
+            const container = document.querySelector('.client-recommendations-grid');
+            if (container) {
+                refreshUnassignedClients();
+            }
+        }
+
+        // Initialize the page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize doula directory table
+            updateDoulaDirectoryTable();
+            
+            // Initialize unassigned clients with dynamic doula options
+            initializeUnassignedClients();
+            
+
+            
+
+            
+            // Add edit client form event listener
+            const editClientForm = document.getElementById('editClientForm');
+            console.log('Edit client form found:', !!editClientForm);
+            if (editClientForm) {
+                editClientForm.addEventListener('submit', saveEditedClient);
+                console.log('Event listener added to edit client form');
+            } else {
+                console.error('Edit client form not found!');
+            }
+            
+            
+        
+
+            
+
+            
+            // New donation submission function
+            window.submitNewDonation = function() {
+                console.log('Submit new donation function called!');
+                
+                // Get form values directly
+                const donorName = document.getElementById('newDonorName').value.trim();
+                const amount = parseFloat(document.getElementById('newDonationAmount').value);
+                const type = document.getElementById('newDonationType').value;
+                const date = document.getElementById('newDonationDate').value;
+                const notes = document.getElementById('newDonationNotes').value.trim();
+                
+                console.log('Form values:', { donorName, amount, type, date, notes });
+                
+                // Validate inputs
+                if (!donorName || !amount || amount <= 0 || !type || !date) {
+                    alert('Please fill in all required fields with valid values.');
+                    return;
+                }
+                
+                // Generate new donation ID
+                const tableBody = document.getElementById('newDonationTableBody');
+                const currentRows = tableBody.getElementsByTagName('tr').length;
+                const newId = 2001 + currentRows;
+                
+                // Create donation object
+                const newDonation = {
+                    id: newId,
+                    donorName: donorName,
+                    amount: amount,
+                    type: type,
+                    date: date,
+                    notes: notes || 'No notes'
+                };
+                
+                console.log('New donation object:', newDonation);
+                
+                // Add to dashboard data
+                dashboardData.donations.push(newDonation);
+                console.log('Donation added to data. Total donations:', dashboardData.donations.length);
+                
+                // Add new row to table
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${newDonation.id}</td>
+                    <td>${newDonation.donorName}</td>
+                    <td>$${newDonation.amount.toLocaleString()}</td>
+                    <td>${newDonation.type}</td>
+                    <td>${newDonation.date}</td>
+                    <td>${newDonation.notes}</td>
+                `;
+                tableBody.appendChild(newRow);
+                
+                // Show success message
+                alert(`Thank you for your donation, ${newDonation.donorName}!\n\nDonation Details:\n- Amount: $${newDonation.amount.toLocaleString()}\n- Type: ${newDonation.type}\n- Date: ${newDonation.date}\n- Notes: ${newDonation.notes}`);
+                
+                // Reset the form
+                document.getElementById('newDonationForm').reset();
+                
+                console.log('Donation successfully added!');
+            };
+            
+            // Function to update donation table
+            function updateDonationTable() {
+                const tableBody = document.getElementById('donationTableBody');
+                
+                if (tableBody) {
+                    // Clear existing rows
+                    tableBody.innerHTML = '';
+                    
+                    // Add all donations
+                    dashboardData.donations.forEach(donation => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${donation.id}</td>
+                            <td>${donation.donorName}</td>
+                            <td>$${donation.amount.toLocaleString()}</td>
+                            <td>${donation.type}</td>
+                            <td>${donation.date}</td>
+                            <td>${donation.notes}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                }
+            }
+            
+            console.log('Mamatoto Village website loaded successfully!');
+            
+
+
+            // Data Dictionary Interactive Functionality
+            const dataDictionary = {
+                'Client ID': 'Unique identifier for each client in the system',
+                'Client Name': 'Full name of the client receiving services',
+                'Due Date': 'Expected delivery date for pregnant clients',
+                'Enrollment Date': 'Date client first contacted the organization',
+                'Mental Health Score': 'Self-reported emotional well-being score (1-10)',
+                'Status': 'Current program status (active, completed, inactive)',
+                'Provider': 'Name of volunteer or staff providing service',
+                'Donation ID': 'Unique identifier for each donation',
+                'Donor Name': 'Name of the person or organization making the donation',
+                'Amount': 'Monetary value of the donation',
+                'Type': 'Type of donation (monetary, in-kind, etc.)',
+                'Date': 'Date the donation was received',
+                'Volunteer ID': 'Unique identifier for each volunteer',
+                'Role': 'Volunteer role or position',
+                'Hours Contributed': 'Total volunteer hours contributed',
+                'Doula ID': 'Unique identifier for each doula in the system (e.g., 5001, 5002, 5003)',
+                'Expense ID': 'Unique identifier for each expense record',
+                'Prenatal Visits': 'Regular check-ups and medical monitoring during pregnancy',
+                'Postpartum Care': 'Support and medical care for mothers after childbirth',
+                'Mental Health': 'Counseling and emotional support services',
+                'Education': 'Prenatal classes and parenting workshops',
+                'Singleton': 'A pregnancy with one baby (single fetus). This is the most common type of pregnancy where a woman carries one baby.',
+                'Twins': 'A pregnancy with two babies (multiple fetuses). This can be identical twins (same genetic material) or fraternal twins (different genetic material).',
+                'High-risk': 'A pregnancy that requires special medical attention due to complications or risk factors such as advanced maternal age, pre-existing conditions, or pregnancy complications.',
+                'Risk Level': 'Assessment of pregnancy risk (Low, Medium, High) based on medical factors including age, health history, and current pregnancy conditions.',
+                'Pregnancy Type': 'Classification of pregnancy (Singleton, Twins, High-risk) that helps determine the level of care and support needed.',
+                'Doula': 'A trained professional who provides physical, emotional, and informational support during pregnancy, childbirth, and postpartum. Doulas offer continuous care and advocacy.',
+                'Specialties': 'Areas of expertise for doulas (Singleton, Twins, High-risk, General). Specialized training allows doulas to provide targeted support for specific pregnancy types.',
+                'Languages': 'Languages spoken by clients or doulas for communication. Language matching ensures effective communication and cultural sensitivity.',
+                'Certification Level': 'Professional certification status (certified, student, experienced) indicating the doula\'s training and qualification level.',
+                'Experience Years': 'Number of years working as a doula or in maternal health. More experience often correlates with better outcomes and client satisfaction.',
+                'Availability': 'Doula scheduling preference (flexible, part-time, full-time) that determines when and how often they can provide support.',
+                'Max Clients': 'Maximum number of clients a doula can support simultaneously while maintaining quality care and attention.',
+                'Rating': 'Average client satisfaction score for doula services, typically on a scale of 1-5 stars based on client feedback and outcomes.'
+            };
+
+            // Create tooltip element
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            document.body.appendChild(tooltip);
+
+            // Function to show tooltip
+            function showTooltip(element, text) {
+                const rect = element.getBoundingClientRect();
+                tooltip.textContent = text;
+                tooltip.style.left = rect.left + 'px';
+                tooltip.style.top = (rect.bottom + 5) + 'px';
+                tooltip.classList.add('show');
+            }
+
+            // Function to hide tooltip
+            function hideTooltip() {
+                tooltip.classList.remove('show');
+            }
+
+            // Function to make terms interactive
+            function makeTermsInteractive() {
+                // Select all elements that might contain dictionary terms
+                const selectors = 'h4, strong, td, option, small, span';
+                const elements = document.querySelectorAll(selectors);
+                
+                elements.forEach(element => {
+                    const termText = element.textContent.trim();
+                    
+                    // Check if this element contains a dictionary term
+                    for (const [term, definition] of Object.entries(dataDictionary)) {
+                        if (termText === term || termText.includes(term)) {
+                            element.classList.add('dict-term');
+                            element.setAttribute('title', definition);
+                            element.style.cursor = 'pointer';
+                            element.style.textDecoration = 'underline';
+                            element.style.color = '#1e3a8a';
+                            
+                            // Add hover events
+                            element.addEventListener('mouseenter', (e) => {
+                                showTooltip(e.target, definition);
+                            });
+                            
+                            element.addEventListener('mouseleave', () => {
+                                hideTooltip();
+                            });
+                            
+                            // Add click event to navigate to data dictionary
+                            element.addEventListener('click', () => {
+                                // Switch to project brief tab (where data dictionary is located)
+                                showTab('project');
+                                // Scroll to data dictionary section
+                                setTimeout(() => {
+                                    const dataDictSection = document.querySelector('.document-section');
+                                    if (dataDictSection) {
+                                        dataDictSection.scrollIntoView({ behavior: 'smooth' });
+                                    }
+                                }, 100);
+                            });
+                            
+                            break; // Found the term, no need to check others
+                        }
+                    }
+                });
+            }
+
+            // Initialize interactive terms when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                makeTermsInteractive();
+            });
+
+            // Make function globally available
+            window.makeTermsInteractive = makeTermsInteractive;
         });
 
 
