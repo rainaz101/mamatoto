@@ -1,0 +1,37 @@
+{
+  "name": "Expense",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Description of the expense"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Expense amount in dollars"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Program",
+        "Administrative",
+        "Fundraising"
+      ],
+      "description": "Expense category"
+    },
+    "approved_by": {
+      "type": "string",
+      "description": "Who approved the expense"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of expense"
+    }
+  },
+  "required": [
+    "description",
+    "amount",
+    "category"
+  ]
+}
