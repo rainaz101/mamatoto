@@ -1,0 +1,38 @@
+{
+  "name": "Donation",
+  "type": "object",
+  "properties": {
+    "donor_name": {
+      "type": "string",
+      "description": "Name of the donor"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Donation amount in dollars"
+    },
+    "donation_type": {
+      "type": "string",
+      "enum": [
+        "Monetary",
+        "In-Kind",
+        "Equipment"
+      ],
+      "description": "Type of donation"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of donation"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes about the donation"
+    }
+  },
+  "required": [
+    "donor_name",
+    "amount",
+    "donation_type",
+    "date"
+  ]
+}
